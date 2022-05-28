@@ -1,0 +1,6764 @@
+directive @super on FIELD_DEFINITION
+
+directive @admin on FIELD_DEFINITION
+
+directive @manager on FIELD_DEFINITION
+
+directive @vendor on FIELD_DEFINITION
+
+directive @support on FIELD_DEFINITION
+
+directive @auth on FIELD_DEFINITION
+
+directive @guest on FIELD_DEFINITION
+
+directive @demo on FIELD_DEFINITION
+
+directive @store on FIELD_DEFINITION
+
+directive @brandDelete on FIELD_DEFINITION
+
+directive @brandQuery on FIELD_DEFINITION
+
+directive @brandSave on FIELD_DEFINITION
+
+directive @categoryDelete on FIELD_DEFINITION
+
+directive @categoryQuery on FIELD_DEFINITION
+
+directive @categorySave on FIELD_DEFINITION
+
+directive @cacheControl(
+  maxAge: Int
+  scope: CacheControlScope
+) on FIELD_DEFINITION | OBJECT | INTERFACE
+
+type addressRes {
+  data: [Address]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type Address {
+  id: ID!
+  email: String
+  firstName: String
+  lastName: String
+  fullName: String
+  type: String
+  address: String
+  locality: String
+  town: String
+  city: String
+  district: String
+  country: String
+  state: String
+  lat: Float
+  lng: Float
+  zip: String
+  phone: String
+  active: Boolean
+  isResidential: Boolean
+  verified: Boolean
+  user: ID
+  store: ID
+  createdAt: String!
+  updatedAt: String!
+}
+
+type OneAddress {
+  id: ID!
+  email: String
+  firstName: String
+  lastName: String
+  fullName: String
+  type: String
+  address: String
+  locality: String
+  town: String
+  city: String
+  district: String
+  country: String
+  state: String
+  lat: Float
+  lng: Float
+  zip: String
+  phone: String
+  active: Boolean
+  isResidential: Boolean
+  verified: Boolean
+  user: ID
+  store: ID
+  createdAt: String!
+  updatedAt: String!
+}
+
+type Coords {
+  lat: Float
+  lng: Float
+}
+
+type FBProduct {
+  id: String
+  name: String
+  age_group: String
+  availability: String
+  brand: String
+  category: String
+  condition: String
+  currency: String
+  description: String
+  gender: String
+  image_url: String
+  price: String
+  retailer_id: String
+  retailer_product_group_id: String
+  url: String
+}
+
+type Appointment {
+  id: ID!
+  type: String
+  status: String
+  event: Event
+  from: String
+  to: String
+  date: String
+  phone: String
+  email: String
+  user: User
+  uid: User
+  createdAt: String!
+  updatedAt: String!
+}
+
+type OneAppointment {
+  id: ID!
+  type: String
+  status: String
+  event: ID
+  from: String
+  to: String
+  date: String
+  phone: String
+  email: String
+  user: ID
+  uid: ID
+  createdAt: String!
+  updatedAt: String!
+}
+
+type appointmentRes {
+  data: [Appointment]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type Attribute {
+  id: ID!
+  name: String
+  category: String
+  show: Boolean
+  active: Boolean
+  createdAt: String
+  updatedAt: String
+  store: ID
+}
+
+type attributeRes {
+  data: [Attribute]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type Banner {
+  id: ID!
+  link: String
+  heading: String
+  img: String
+  imgCdn: String
+  type: String
+  groupId: String
+  groupTitle: String
+  pageType: String
+  pageId: String
+  sort: Int
+  active: Boolean
+  isLinkExternal: Boolean
+  isMobile: Boolean
+  store: Store
+  createdAt: String!
+  updatedAt: String!
+}
+
+type OneBanner {
+  id: ID!
+  _id: ID
+  link: String
+  heading: String
+  img: String
+  imgCdn: String
+  type: String
+  groupId: String
+  groupTitle: String
+  pageType: String
+  pageId: String
+  sort: Int
+  active: Boolean
+  isLinkExternal: Boolean
+  isMobile: Boolean
+  store: ID
+  createdAt: String!
+  updatedAt: String!
+}
+
+type bannerGroup {
+  _id: bgData
+  data: [OneBanner]
+}
+
+type bgData {
+  title: String
+  type: String
+}
+
+type bannerGroup1 {
+  _id: String
+  data: [OneBanner]
+}
+
+type bannerRes {
+  data: [OneBanner]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type BankTransfer {
+  id: ID!
+  type: String
+  amount: Float
+  reference: String
+  remark: String
+  paymentMethodId: String
+  verified: Boolean
+  verifiedAt: String
+  verifiedBy: User
+  user: User
+  store: Store
+  createdAt: String!
+  updatedAt: String!
+}
+
+type OneBankTransfer {
+  id: ID!
+  type: String
+  amount: Float
+  reference: String
+  remark: String
+  paymentMethodId: String
+  verified: Boolean
+  verifiedAt: String
+  verifiedBy: ID
+  user: ID
+  store: ID
+  createdAt: String!
+  updatedAt: String!
+}
+
+type bankTransferRes {
+  data: [BankTransfer]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type Blog {
+  id: ID!
+  title: String
+  slug: String
+  excerpt: String
+  content: String
+  published_at: String
+  tags: [String]
+  img: String
+  imgCdn: String
+  status: String
+  active: Boolean
+  user: User
+  store: Store
+  createdAt: String!
+  updatedAt: String!
+}
+
+type OneBlog {
+  id: ID!
+  title: String
+  slug: String
+  excerpt: String
+  content: String
+  published_at: String
+  tags: [String]
+  img: String
+  imgCdn: String
+  status: String
+  active: Boolean
+  user: ID
+  store: ID
+  createdAt: String!
+  updatedAt: String!
+}
+
+type blogRes {
+  data: [Blog]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type Brand {
+  id: ID!
+  brandId: String
+  name: String
+  slug: String
+  position: Int
+  info: String
+  meta: String
+  metaTitle: String
+  metaDescription: String
+  metaKeywords: String
+  img: String
+  imgCdn: String
+  featured: Boolean
+  user: User
+  sizechart: String
+  facebookUrl: String
+  twitterUrl: String
+  linkedinUrl: String
+  youtubeUrl: String
+  instaUrl: String
+  pinterestUrl: String
+  googleUrl: String
+  banner: String
+  bannerCdn: String
+  active: Boolean
+  parent: Brand
+  store: Store
+  createdAt: String!
+  updatedAt: String!
+}
+
+type OneBrand {
+  id: ID!
+  brandId: String
+  name: String
+  slug: String
+  position: Int
+  info: String
+  meta: String
+  metaTitle: String
+  metaDescription: String
+  metaKeywords: String
+  img: String
+  imgCdn: String
+  featured: Boolean
+  user: ID
+  sizechart: String
+  facebookUrl: String
+  twitterUrl: String
+  linkedinUrl: String
+  youtubeUrl: String
+  instaUrl: String
+  pinterestUrl: String
+  googleUrl: String
+  banner: String
+  bannerCdn: String
+  active: Boolean
+  parent: ID
+  store: ID
+  createdAt: String
+  updatedAt: String
+}
+
+type brandRes {
+  data: [Brand]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+input OptionIp1 {
+  option: ID
+  values: [String]
+}
+
+type Option1 {
+  option: ID
+  values: [String]
+}
+
+type UsedOption {
+  name: String
+  val: [String]
+  dates: [String]
+}
+
+type CartDiscount {
+  code: String
+  value: Float
+  text: String
+  amount: Float
+}
+
+type Cart {
+  id: ID
+  uid: User
+  cart_id: Cart
+  store: Store
+  storeCurrency: ID
+  qty: Int
+  currencyCode: String
+  currencyName: String
+  currencySymbol: String
+  discount: CartDiscount
+  subtotal: Float
+  shipping: Shipping
+  tax: Float
+  total: Float
+  offer_total: Float
+  items: [CartItem]
+  unavailableItems: [CartItem]
+  active: Boolean
+  sid: String
+  formattedAmount: CartAmount
+  needAddress: Boolean
+  createdAt: String!
+  updatedAt: String!
+}
+
+type CartOne {
+  id: ID
+  uid: ID
+  cart_id: ID
+  store: ID
+  storeCurrency: ID
+  qty: Int
+  currencyCode: String
+  currencyName: String
+  currencySymbol: String
+  discount: CartDiscount
+  subtotal: Float
+  shipping: Shipping
+  tax: Float
+  total: Float
+  offer_total: Float
+  items: [ID]
+  unavailableItems: [ID]
+  active: Boolean
+  sid: String
+  formattedAmount: CartAmount
+  needAddress: Boolean
+  createdAt: String!
+  updatedAt: String!
+}
+
+type CartItem {
+  pid: ID
+  vid: ID
+  barcode: String
+  name: String
+  img: String
+  imgCdn: String
+  slug: String
+  price: Float
+  mrp: Float
+  shippingCharge: Float
+  status: String
+  orderStatus: [OrderStatusRes]
+  tracking: String
+  qty: Int
+  time: String
+  options: [Option1]
+  usedOptions: [UsedOption]
+  brand: Brand
+  tax: Float
+  brandName: String
+  type: String
+  formattedItemAmount: CartItemAmount
+  vendor: ID
+  vendorSlug: String
+  vendorBusinessName: String
+  foodType: String
+  deliveryDetails: String
+  msg: String
+}
+
+type CartItemAmount {
+  mrp: String
+  price: String
+  shippingCharge: String
+  tax: String
+}
+
+type CartAmount {
+  subtotal: String
+  total: String
+  tax: String
+  offer_total: String
+}
+
+type cartRes {
+  data: [Cart]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type Category {
+  _id: ID
+  id: ID!
+  index: Int
+  name: String
+  description: String
+  parent: Category
+  slug: String
+  categoryId: String
+  path: String
+  slugPath: String
+  namePath: String
+  pathA: [Category]
+  level: Int
+  link: String
+  position: Int
+  megamenu: Boolean
+  meta: String
+  metaTitle: String
+  metaDescription: String
+  metaKeywords: String
+  keywords: String
+  img: String
+  imgCdn: String
+  banner: String
+  bannerCdn: String
+  featured: Boolean
+  featuredSort: Float
+  shopbycategory: Boolean
+  children: [Category]
+  user: User
+  count: Int
+  sizechart: String
+  active: Boolean
+  createdAt: String
+  updatedAt: String
+  attributes: [Attribute]
+  brand: Brand
+  store: Store
+}
+
+type CategorySimple {
+  _id: ID
+  id: ID!
+  index: Int
+  name: String
+  description: String
+  parent: ID
+  slug: String
+  categoryId: ID
+  path: String
+  slugPath: String
+  namePath: String
+  pathA: [ID]
+  level: Int
+  link: String
+  position: Int
+  megamenu: Boolean
+  meta: String
+  metaTitle: String
+  metaDescription: String
+  metaKeywords: String
+  keywords: String
+  img: String
+  imgCdn: String
+  banner: String
+  bannerCdn: String
+  featured: Boolean
+  featuredSort: Float
+  shopbycategory: Boolean
+  children: [CategorySimple]
+  user: User
+  count: Int
+  sizechart: String
+  active: Boolean
+  location: String
+  brand: ID
+  store: ID
+  createdAt: String
+  updatedAt: String
+}
+
+type categoryRes {
+  data: [Category]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type categoryResSimple {
+  data: [CategorySimple]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type AppKeyAndToken {
+  uid: Int
+  appkey: String
+  token: String
+}
+
+type Zego {
+  appID: Float
+  server: String
+  roomID: String
+  token: String
+  userID: String
+  userName: String
+}
+
+type Channel {
+  id: ID!
+  title: String
+  img: String
+  imgCdn: String
+  isLive: Boolean
+  product: Product
+  products: [Product]
+  scheduleDateTime: Float
+  user: User
+  users: [User]
+  requestId: String
+  cid: String
+  ctime: String
+  pushUrl: String
+  httpPullUrl: String
+  hlsPullUrl: String
+  rtmpPullUrl: String
+  name: String
+  code: String
+  msg: String
+}
+
+type ChannelRes {
+  data: [Channel]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type ChannelOne {
+  id: ID!
+  title: String
+  img: String
+  imgCdn: String
+  isLive: Boolean
+  product: ID
+  products: [ID]
+  scheduleDateTime: Float
+  user: ID!
+  users: [ID]
+  requestId: String
+  cid: String
+  ctime: String
+  pushUrl: String
+  httpPullUrl: String
+  hlsPullUrl: String
+  rtmpPullUrl: String
+  name: String
+  code: String
+  msg: String
+}
+
+type neteaseVideoRes {
+  pageSize: Int
+  totalRecords: Int
+  currentPage: Int
+  pageNum: Int
+  data: [NeteaseVideo]
+}
+
+type NeteaseVideo {
+  createTime: String
+  origUrl: String
+  playSupport: Int
+  downloadOrigUrl: String
+  videoName: String
+  vid: String
+  durationMsec: Int
+  status: Int
+  updateTime: String
+  typeName: String
+  duration: Int
+  snapshotUrl: String
+  initialSize: Int
+  typeId: Int
+}
+
+type tokenRes {
+  uid: String
+  token: String
+  channel: String
+}
+
+type ChannelList {
+  channel_name: String
+  user_count: Int
+  user: User
+}
+
+type Location {
+  id: ID!
+  name: String!
+  lat: Float
+  lng: Float
+  user: User
+  country: String
+  active: Boolean!
+  createdAt: String!
+  updatedAt: String!
+  zip: String
+  zips: [String]
+}
+
+type LocationOne {
+  id: ID!
+  name: String!
+  country: String
+  lat: Float
+  lng: Float
+  user: ID
+  active: Boolean!
+  createdAt: String!
+  updatedAt: String!
+  zip: String
+  zips: [String]
+}
+
+type locationRes {
+  data: [Location]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type Collection {
+  id: ID!
+  name: String
+  products: [ID]
+  description: String
+  active: Boolean
+  images: [String]
+  img: String
+  imgCdn: String
+  q: String
+  sort: String
+  type: String
+  user: User
+  store: Store
+  createdAt: String
+  updatedAt: String
+}
+
+type CollectionOne {
+  id: ID!
+  name: String
+  products: [Product]
+  description: String
+  active: Boolean
+  images: [String]
+  img: String
+  imgCdn: String
+  q: String
+  sort: String
+  type: String
+  user: User
+  store: Store
+  createdAt: String
+  updatedAt: String
+}
+
+type collectionRes {
+  data: [CollectionOne]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type Color {
+  id: ID!
+  name: String
+  val: String
+  color_code: String
+  slug: String
+  info: String
+  featured: Boolean
+  active: Boolean
+  store: Store
+  createdAt: String!
+  updatedAt: String!
+}
+
+type OneColor {
+  id: ID!
+  name: String
+  val: String
+  color_code: String
+  slug: String
+  info: String
+  featured: Boolean
+  active: Boolean
+  store: ID
+  createdAt: String!
+  updatedAt: String!
+}
+
+type colorRes {
+  data: [Color]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type Country {
+  id: ID!
+  name: String!
+  slug: String
+  value: String
+  img: String
+  imgCdn: String
+  flag: String
+  dialCode: String
+  code: String
+  lang: String
+  states: [State]
+  sort: Int
+  active: Boolean
+  createdAt: String!
+  updatedAt: String!
+}
+
+type countryRes {
+  data: [Country]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+input DiscountIp {
+  type: String
+  isPercent: Boolean
+  value: Float
+  currency: ID
+  excludeCategories: [ID]
+  shippingMethod: String
+  product: ID
+  minProductQty: Int
+  maxProductQty: Int
+  category: ID
+  minProductPrice: Float
+  minOrderTotal: Float
+}
+
+type UniqueCode {
+  uniqueCode: String
+  used: Int
+}
+
+type Discount1 {
+  type: String
+  isPercent: Boolean
+  value: Float
+  currency: ID
+  excludeCategories: [ID]
+  shippingMethod: String
+  product: ID
+  minProductQty: Int
+  maxProductQty: Int
+  category: ID
+  minProductPrice: Float
+  minOrderTotal: Float
+}
+
+type Coupon {
+  id: ID!
+  isMultiple: Boolean
+  codes: [UniqueCode]
+  used: Int
+  name: String
+  code: String
+  info: String
+  description: String
+  discount: Discount1
+  msg: String
+  text: String
+  terms: String
+  color: String
+  maxAmount: Float
+  maxUselimit: Int
+  oneUsePerCustomer: Boolean
+  oneUsePerUniqueCode: Boolean
+  validFrom: String
+  validTo: String
+  active: Boolean
+  store: Store
+  createdAt: String!
+  updatedAt: String!
+}
+
+type OneCoupon {
+  id: ID!
+  isMultiple: Boolean
+  codes: [UniqueCode]
+  used: Int
+  name: String
+  code: String
+  info: String
+  description: String
+  discount: Discount1
+  msg: String
+  text: String
+  terms: String
+  color: String
+  maxAmount: Float
+  maxUselimit: Int
+  oneUsePerCustomer: Boolean
+  oneUsePerUniqueCode: Boolean
+  validFrom: String
+  validTo: String
+  active: Boolean
+  store: ID
+  createdAt: String!
+  updatedAt: String!
+}
+
+type couponRes {
+  data: [Coupon]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type Currency {
+  id: ID
+  name: String
+  sort: Int
+  isoCode: String
+  isoNumericCode: Int
+  thousandsSeparator: String
+  decimalMark: String
+  symbolFirst: Boolean
+  active: Boolean
+  symbol: String
+  disambiguateSymbol: String
+  htmlEntity: String
+  subUnit: String
+  smallestDenomination: Float
+  subunitToUnit: Float
+  createdAt: String
+  updatedAt: String
+}
+
+type currencyRes {
+  data: [Currency]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type CustomerMessage {
+  id: ID!
+  name: String
+  email: String
+  message: String
+  store: Store
+}
+
+type OneCustomerMessage {
+  id: ID!
+  name: String
+  email: String
+  message: String
+  store: ID
+}
+
+type CustomerMessageRes {
+  data: [CustomerMessage]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type DealRes {
+  data: [Deal]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type DealOne {
+  id: String!
+  name: String
+  description: String
+  img: String
+  imgCdn: String
+  startTime: String
+  endTime: String
+  startTimeISO: String
+  endTimeISO: String
+  onGoing: Boolean
+  products: [ID]
+  dealStatus: Boolean
+  active: Boolean
+  store: ID
+}
+
+type Deal {
+  id: String!
+  name: String
+  description: String
+  img: String
+  imgCdn: String
+  startTime: String
+  endTime: String
+  startTimeISO: String
+  endTimeISO: String
+  onGoing: Boolean
+  products: [Product]
+  dealStatus: Boolean
+  active: Boolean
+  store: Store
+}
+
+type Discount {
+  id: ID!
+  active: Boolean
+  amount: Float
+  applyOn: String
+  description: String
+  img: String
+  imgCdn: String
+  name: String
+  q: String
+  ruleType: String
+  slug: String
+  type: String
+  maximumUsage: Int
+  startDate: String
+  endDate: String
+  numberOfTimeUsed: Int
+  seller: User
+  store: Store
+}
+
+type DiscountOne {
+  id: ID!
+  active: Boolean
+  amount: Float
+  applyOn: String
+  description: String
+  img: String
+  imgCdn: String
+  name: String
+  q: String
+  ruleType: String
+  slug: String
+  type: String
+  maximumUsage: Int
+  startDate: String
+  endDate: String
+  numberOfTimeUsed: Int
+  seller: ID
+  store: ID
+}
+
+type discountRes {
+  data: [Discount]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type Template {
+  id: String
+  active: Boolean
+  content: String
+  description: String
+  fileName: String
+  folder: String
+  icon: String
+  iconCdn: String
+  name: String
+  store: Store
+  templateId: String
+  title: String
+  user: User
+  variables: [String]
+  createdAt: String!
+  updatedAt: String!
+}
+
+type OneTemplate {
+  id: String
+  active: Boolean
+  content: String
+  description: String
+  fileName: String
+  folder: String
+  icon: String
+  iconCdn: String
+  name: String
+  store: ID
+  templateId: String
+  title: String
+  user: ID
+  variables: [String]
+  createdAt: String!
+  updatedAt: String!
+}
+
+type TemplateRes {
+  data: [Template]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+input ruleIp {
+  enable: Boolean
+  day: String
+  intervals: [intervalIp]
+}
+
+input intervalIp {
+  from: String
+  to: String
+}
+
+type Rule {
+  enable: Boolean
+  day: String
+  intervals: [Interval]
+}
+
+type Interval {
+  from: String
+  to: String
+  isBooked: Boolean
+}
+
+type Event {
+  id: ID!
+  active: Boolean
+  rules: [Rule]
+  user: User
+  createdAt: String!
+  updatedAt: String!
+}
+
+type eventOne {
+  id: ID!
+  active: Boolean
+  rules: [Rule]
+  user: ID
+  createdAt: String!
+  updatedAt: String!
+}
+
+type eventRes {
+  data: [Event]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type Faq {
+  id: ID!
+  question: String
+  topic: String
+  answer: String
+  active: Boolean
+  opened: Boolean
+  store: Store
+  createdAt: String!
+  updatedAt: String!
+}
+
+type faqOne {
+  id: ID!
+  question: String
+  topic: String
+  answer: String
+  active: Boolean
+  opened: Boolean
+  store: ID
+  createdAt: String!
+  updatedAt: String!
+}
+
+type faqRes {
+  data: [Faq]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type FaqTopic {
+  id: ID!
+  name: String
+  slug: String
+  for: String
+  uid: ID
+  q: String
+  active: Boolean
+  createdAt: String!
+  updatedAt: String!
+}
+
+type faqTopicRes {
+  data: [FaqTopic]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type FcmToken {
+  id: ID!
+  token: String
+  platform: String
+  device_id: String
+  user_type: String
+  sId: String
+  user: User
+  active: Boolean
+  createdAt: String!
+  updatedAt: String!
+}
+
+type fcmTokenRes {
+  data: [FcmToken]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type Feature {
+  id: ID!
+  name: String
+  value: String
+  slug: String
+  type: String
+  product: ID
+  store: Store
+  active: Boolean
+  createdAt: String!
+  updatedAt: String!
+}
+
+type OneFeature {
+  id: ID!
+  name: String
+  value: String
+  slug: String
+  type: String
+  product: ID
+  store: ID
+  active: Boolean
+  createdAt: String!
+  updatedAt: String!
+}
+
+type featureRes {
+  data: [Feature]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type GdprDataDeleteRequest {
+  id: ID
+  comment: String
+  description: String
+  email: String
+  reason: String
+  status: String
+  user: User
+  createdAt: String!
+  updatedAt: String!
+}
+
+type GdprDataDeleteRequestOne {
+  id: ID!
+  comment: String
+  description: String
+  email: String
+  reason: String
+  status: String
+  user: ID
+  createdAt: String!
+  updatedAt: String!
+}
+
+type gdprDataDeleteRequestRes {
+  data: [GdprDataDeleteRequest]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type GlobalOption {
+  id: ID!
+  name: String
+  key: String
+  val: String
+  categories: [String]
+  values: [GlobalOptionValue]
+  position: Int
+  slug: String
+  info: String
+  isFilter: String
+  active: Boolean
+  required: Boolean
+  preselect: Boolean
+  type: String
+  createdAt: String!
+  updatedAt: String!
+}
+
+type globalOptionRes {
+  data: [GlobalOption]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type GlobalOptionValue {
+  id: ID!
+  global_option_id: ID!
+  name: String
+  default: Boolean
+  slug: String
+  active: Boolean
+  position: Int
+  createdAt: String!
+  updatedAt: String!
+}
+
+type globalOptionValueRes {
+  data: [GlobalOptionValue]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type InstantMessage {
+  id: ID!
+  channel: String
+  message: String
+  uid: String
+  firstName: String
+  lastName: String
+  user: User
+}
+
+type InstantMessageRes {
+  data: [InstantMessage]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type ImportDetail {
+  id: ID!
+  importNo: String
+  rawNo: Int
+  totalItems: Int
+  message: String
+  fileName: String
+  type: String
+  success: Boolean
+  user: ID
+}
+
+type importDetailRes {
+  data: [ImportDetail]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type Inventory {
+  id: ID!
+  quantity: Int
+  left: Int
+  type: String
+  action: String
+  reason: String
+  notes: String
+  product: Product
+  user: User
+  vendor: Vendor
+  createdAt: String!
+  updatedAt: String!
+}
+
+type OneInventory {
+  id: ID!
+  quantity: Int
+  left: Int
+  type: String
+  action: String
+  reason: String
+  notes: String
+  product: ID
+  user: ID
+  Vendor: ID
+  createdAt: String!
+  updatedAt: String!
+}
+
+type inventoryRes {
+  data: [Inventory]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type Influencer {
+  id: ID!
+  product: Product
+  user: User
+  videos: [String]
+}
+
+type InfluencerOne {
+  id: ID!
+  product: ID
+  user: ID
+  videos: [String]
+}
+
+type InfluencerRes {
+  data: [Influencer]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type Language {
+  id: ID
+  active: Boolean
+  code: String
+  name: String
+  nativeName: String
+  phpLocaleCode: String
+  rtl: Boolean
+  sort: Int
+  createdAt: String
+  updatedAt: String
+}
+
+type OneLanguage {
+  id: ID
+  active: Boolean
+  code: String
+  name: String
+  nativeName: String
+  phpLocaleCode: String
+  rtl: Boolean
+  sort: Int
+  createdAt: String
+  updatedAt: String
+}
+
+type languageRes {
+  data: [Language]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type File {
+  url: String
+  filename: String
+  mimetype: String
+  encoding: String
+}
+
+type Media {
+  id: ID!
+  originalFilename: String
+  src: String
+  path: String
+  size: String
+  type: String
+  name: String
+  uid: User
+  use: String
+  active: Boolean
+  createdAt: String!
+  updatedAt: String!
+}
+
+type UploadedFileResponse {
+  filename: String!
+  mimetype: String!
+  encoding: String!
+  url: String!
+}
+
+type Option {
+  id: ID
+  name: String
+  inputType: String
+  preselectDefault: Boolean
+  required: Boolean
+  position: Int
+  product: Product
+  values: [OptionValue]
+  user: User
+  createdAt: String!
+  updatedAt: String!
+}
+
+type OneOption {
+  id: ID
+  name: String
+  inputType: String
+  preselectDefault: Boolean
+  required: Boolean
+  position: Int
+  product: ID
+  values: [ID]
+  user: ID
+  createdAt: String!
+  updatedAt: String!
+}
+
+input OptionIp {
+  id: ID
+  name: String
+  key: String
+  val: String
+  categories: [String]
+  values: [ValueIp]
+  position: Int
+  slug: String
+  info: String
+  isFilter: String
+  active: Boolean
+  required: Boolean
+  preselect: Boolean
+  type: String
+}
+
+input ValueIp {
+  id: String
+  name: String
+  default: Boolean
+  slug: String
+  position: Int
+}
+
+type optionRes {
+  data: [Option]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type OptionValue {
+  id: ID!
+  name: String
+  direction: String
+  isPercent: Boolean
+  default: Boolean
+  value: Float
+  position: Int
+  option: Option
+  user: User
+  createdAt: String!
+  updatedAt: String!
+}
+
+type OneOptionValue {
+  id: ID!
+  name: String
+  direction: String
+  isPercent: Boolean
+  default: Boolean
+  value: Float
+  position: Int
+  option: ID
+  user: ID
+  createdAt: String!
+  updatedAt: String!
+}
+
+type optionValueRes {
+  data: [OptionValue]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type StatusSummary {
+  _id: String
+  amount: Float
+  count: Int
+  createdAt: String
+}
+
+type DeliveryByVendor {
+  data: [Delv]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type Delv {
+  _id: Delv2
+  items: [CartItem]
+  total: Float
+  count: Int
+  date: String
+}
+
+type Delv2 {
+  vendor: Vendor
+}
+
+type TC {
+  _id: todaysVendors
+  amount: Int
+  count: Int
+}
+
+type todaysVendors {
+  id: String
+  firstName: String
+  lastName: String
+  address: Address
+}
+
+type salesData {
+  _id: String
+  total: Float
+  qty: Int
+}
+
+type delivery {
+  pending: DeliveryGroup
+  out: DeliveryGroup
+  cancelled: DeliveryGroup
+  delivered: DeliveryGroup
+  all: DeliveryGroup
+}
+
+type DeliveryGroup {
+  _id: String
+  total: Float
+  count: Int
+  items: [Order]
+}
+
+type TodaysSummary {
+  _id: String
+  count: Float
+  amount: Float
+  createdAt: String
+  codPaid: Float
+}
+
+type MethodsSummary {
+  _id: String
+  amount: Float
+  count: Int
+}
+
+type myCustomerRes {
+  data: [myCustomer]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type myCustomer {
+  _id: Order
+  items: [CartItem]
+  total: Int
+}
+
+type orderRes {
+  data: [Order]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type Order {
+  id: ID
+  user: User
+  userFirstName: String
+  userLastName: String
+  addressId: Address
+  userPhone: String
+  userEmail: String
+  otp: String
+  orderNo: String
+  amount: Amount
+  address: Address
+  baseAmount: Amount
+  baseCodPaid: Float
+  baseTotalAmountRefunded: Float
+  paymentOrderId: String
+  cartId: Cart!
+  items: [OrderItem!]
+  orderItems: [OrderItem!]
+  delivery: Delivery
+  comment: String
+  cancellationReason: String
+  cancellationComment: String
+  returnComment: String
+  paySuccess: Int
+  amountPaid: Float
+  amountDue: Float
+  totalAmountRefunded: Float
+  payment: Payment
+  paymentMode: String
+  paymentMsg: String
+  paymentTime: String
+  paid: Boolean
+  paymentGateway: String
+  paymentAmount: Float
+  paymentCurrency: String
+  paymentReferenceId: String
+  paymentStatus: String
+  paymentReceipt: String
+  invoiceId: String
+  reviewed: Boolean
+  shippingOrderId: String
+  createdAt: String
+  updatedAt: String
+  codPaid: Float
+  store: Store
+}
+
+type orderItemRes {
+  data: [OrderItem]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type OrderItem {
+  active: Boolean
+  address: Address
+  addressId: Address
+  billingAddress: Address
+  amount: Amount
+  amountDue: Float
+  amountPaid: Float
+  totalDiscount: Float
+  totalAmountRefunded: Float
+  cancellationComment: String
+  cancellationReason: String
+  cartId: Cart!
+  codPaid: Float
+  comment: String
+  coupon: Coupon
+  delivery: Delivery
+  invoiceId: String
+  orderNo: String
+  otp: String
+  paid: Boolean
+  payment: Payment
+  paymentAmount: Float
+  paymentCurrency: String
+  paymentGateway: String
+  paymentMode: String
+  paymentMsg: String
+  paymentNotes: String
+  paymentOrderId: String
+  paymentReceipt: String
+  paymentReferenceId: String
+  paymentStatus: String
+  paymentTime: String
+  paySuccess: Int
+  returnComment: String
+  user: User
+  userEmail: String
+  userFirstName: String
+  userLastName: String
+  userPhone: String
+  shippingOrderId: String
+  formattedSubtotal: String
+  formattedShippingCharge: String
+  formattedMrp: String
+  formattedAmountRefunded: String
+  formattedPrice: String
+  formattedTax: String
+  formattedTotal: String
+  formattedTotalDiscount: String
+  formattedVendorCommission: String
+  formattedAmountDue: String
+  formattedAmountPaid: String
+  formattedCodPaid: String
+  formattedDiscount: String
+  formattedPaymentAmount: String
+  formattedTotalAmountRefunded: String
+  formattedAmount: OrderItemAmount
+  id: ID
+  ageMin: Int
+  ageMax: Int
+  ageUnit: String
+  unit: String
+  weight: Float
+  dimensionUnit: String
+  amountRefunded: Float
+  barcode: String
+  baseAmount: Amount
+  baseCodPaid: Float
+  basePaymentAmount: Float
+  baseTotalAmountRefunded: Float
+  baseTotalDiscount: Float
+  baseAmountRefunded: Float
+  baseDiscount: Float
+  baseMrp: Float
+  basePrice: Float
+  baseShippingCharge: Float
+  baseSubtotal: Float
+  baseTax: Float
+  baseTotal: Float
+  brand: Brand
+  brandImg: String
+  brandImgCdn: String
+  brandName: String
+  color: String
+  courierName: String
+  currency: String
+  days: Int
+  description: String
+  discount: Float
+  expectedDeliveryDate: String
+  foodType: String
+  img: String
+  imgCdn: String
+  invoiceLink: String
+  isReplacement: Boolean
+  itemOrderNo: String
+  mrp: Float
+  name: String
+  orderId: ID
+  orderHistory: [OrderHistory]
+  orderStatus: [OrderStatusRes]
+  parentBrand: Brand
+  parentBrandImg: String
+  parentBrandImgCdn: String
+  parentBrandName: String
+  pid: ID
+  posInvoiceNo: String
+  price: Float
+  qty: Int
+  refunds: [Refund]
+  returnCourierName: String
+  returnReason: String
+  returnTrackingId: String
+  returnValidTill: String
+  replaceValidTill: String
+  returnPolicyExpired: Boolean
+  reviewed: Boolean
+  shippingCharge: Float
+  size: String
+  sku: String
+  slotId: Slot
+  slot: Slot
+  slug: String
+  status: String
+  store: Store
+  subtotal: Float
+  tax: Float
+  time: String
+  total: Float
+  tracking: String
+  trackingId: String
+  type: String
+  vendor: Vendor
+  vendorBusinessName: String
+  vendorCommissionType: String
+  vendorCommissionValue: Float
+  vendorPhone: String
+  vendorEmail: String
+  vendorInfo: Vendor
+  vendorAddress: Address
+  vendorAddressId: Address
+  orderItemId: ID
+  deliveryDetails: String
+  shippingProvider: String
+  shippingLabelId: String
+  shippingRateId: String
+  shippingTrackingNumber: String
+  shippingTrackingStatus: String
+  shippingTrackingUrlProvider: String
+  shippingLabelUrl: String
+  shippingCommercialInvoiceUrl: String
+  shippingCarrier: String
+  estimatedDeliveryDate: String
+  options: Option1
+  usedOptions: [UsedOption]
+  createdAt: String
+  updatedAt: String
+}
+
+type OrderItemAmount {
+  subtotal: String
+  tax: String
+  discount: String
+  shipping: String
+  total: String
+  totalDiscount: String
+  exchangeRate: String
+}
+
+input ItemIp {
+  id: String
+  qty: Int
+}
+
+type Amount {
+  qty: Int
+  subtotal: Float
+  tax: Float
+  discount: Float
+  shipping: Float
+  total: Float
+  currency: String
+  exchangeRate: Float
+  totalDiscount: Float
+}
+
+type Delivery {
+  otp: String
+  finish: Coords
+}
+
+type OrderHistory {
+  id: String
+  status: String
+  title: String
+  body: String
+  icon: String
+  public: Boolean
+  index: Int
+  time: String
+  trackingId: String
+  courierName: String
+}
+
+type Refund {
+  amount: Float
+  message: String
+  qty: Int
+  refundId: String
+  time: String
+}
+
+type OrderStatusRes {
+  id: ID!
+  order: ID
+  item: ID
+  event: String
+  tracking_id: String
+  type: String
+  courier_name: String
+  user: ID
+  active: Boolean!
+  createdAt: String!
+  updatedAt: String!
+}
+
+type Page {
+  id: ID!
+  name: String
+  slug: String
+  title: String
+  metaDescription: String
+  keywords: String
+  content: String
+  menuTitle: String
+  user: User
+  store: Store
+  active: Boolean
+  createdAt: String!
+  updatedAt: String!
+}
+
+type OnePage {
+  id: ID!
+  name: String
+  slug: String
+  title: String
+  metaDescription: String
+  keywords: String
+  content: String
+  menuTitle: String
+  user: ID
+  store: ID
+  active: Boolean
+  createdAt: String!
+  updatedAt: String!
+}
+
+type pageRes {
+  data: [Page]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type CashfreeRes {
+  appId: String
+  orderId: String
+  orderAmount: Float
+  orderCurrency: String
+  orderNote: String
+  customerName: String
+  customerEmail: String
+  customerPhone: String
+  returnUrl: String
+  notifyUrl: String
+  signature: String
+  token: String
+  url: String
+  stage: String
+}
+
+type PayPalRes {
+  id: String
+  orderId: String
+  intent: String
+  state: String
+  create_time: String
+  redirect_url: String
+  links: [PayPalLink]
+  transactions: [PayPalTransaction]
+}
+
+type PayPalLink {
+  href: String
+  rel: String
+  method: String
+}
+
+type PayPalTransaction {
+  description: String
+  amount: PayPalAmount
+}
+
+type PayPalAmount {
+  total: Float
+  currency: String
+}
+
+type Payment {
+  id: ID
+  _id: ID
+  orderId: String
+  paymentOrderId: String
+  paymentMode: String
+  paymentGateway: String
+  referenceId: String
+  status: String
+  token: String
+  txMsg: String
+  txTime: String
+  invoiceId: String
+  receipt: String
+  currency: String
+  paid: Boolean
+  amountPaid: Float
+  amountRefunded: Float
+  amountDue: Float
+  captured: Boolean
+  email: String
+  contact: String
+  notes: String
+  fee: Float
+  tax: Float
+  errorCode: String
+  errorDescription: String
+  refundStatus: String
+  description: String
+  store: Store
+  subscribe: ID
+  redirectUrl: String
+}
+
+type OnePayment {
+  id: ID
+  _id: ID
+  orderId: String
+  paymentOrderId: String
+  paymentMode: String
+  paymentGateway: String
+  referenceId: String
+  status: String
+  token: String
+  txMsg: String
+  txTime: String
+  invoiceId: String
+  receipt: String
+  currency: String
+  paid: Boolean
+  amountPaid: Float
+  amountRefunded: Float
+  amountDue: Float
+  captured: Boolean
+  email: String
+  contact: String
+  notes: String
+  fee: Float
+  tax: Float
+  errorCode: String
+  errorDescription: String
+  refundStatus: String
+  description: String
+  store: ID
+  clientSecret: String
+  approvalUrl: String
+  subscribe: ID
+  redirectUrl: String
+}
+
+type PayRes {
+  data: [Payment]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type PayMethodRes {
+  data: [PaymentMethod]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type PaymentMethod {
+  id: String!
+  name: String!
+  value: String
+  img: String
+  imgCdn: String
+  color: String
+  position: Int
+  key: String
+  text: String
+  qrcode: String
+  type: String
+  instructions: String
+  featured: Boolean
+  active: Boolean
+  isError: Boolean
+  store: Store
+}
+
+input UserIp {
+  firstName: String
+  lastName: String
+  info: InputInfo
+}
+
+type ColorGroup {
+  _id: ID
+  color: Color
+}
+
+type SizeGroup {
+  _id: ID
+  size: Size
+}
+
+type fileRes {
+  filename: String
+  mimetype: String
+  encoding: String
+  url: String
+  productCount: Int
+}
+
+type BestSellers {
+  t: [BS]
+  t1: [BS]
+  t2: [BS]
+  t3: [BS]
+  t4: [BS]
+}
+
+type BS {
+  _id: BSDate
+  count: Int
+  items: [BS1]
+  amount: Int
+  updatedAt: String
+}
+
+type BSDate {
+  date: String
+}
+
+type BS1 {
+  id: ID
+  pid: ID
+  name: String
+  slug: String
+  img: String
+  imgCdn: String
+  price: Float
+  category: Category
+  updatedAt: String
+  store: String
+  time: String
+  type: String
+  ratings: String
+  reviews: String
+}
+
+type variantRes {
+  data: [Variant]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type SearchRes {
+  data: [Product]
+  count: Int
+  page: Int
+  pageSize: Int
+  noOfPage: Int
+}
+
+type GroupRes {
+  sizeGroup: [Product]
+  colorGroup: [Product]
+}
+
+input VariantIp {
+  id: ID
+  images: [String]
+  img: String
+  price: Float
+  mrp: Float
+  discount: Float
+  name: String
+  color: String
+  trackInventory: Boolean
+  stock: Float
+  unit: String
+  dimensionUnit: String
+  weight: Float
+  length: Float
+  width: Float
+  height: Float
+  sku: String
+  barcode: String
+  active: Boolean
+  sort: Int
+  options: [NameValIp]
+  enableUnitPrice: Boolean
+  saleFromDate: String
+  saleToDate: String
+}
+
+type Variant {
+  id: ID!
+  images: [String]
+  img: String
+  price: Float
+  mrp: Float
+  discount: Float
+  name: String
+  color: String
+  trackInventory: Boolean
+  stock: Float
+  unit: String
+  dimensionUnit: String
+  weight: Float
+  length: Float
+  height: Float
+  width: Float
+  sku: String
+  barcode: String
+  sort: Int
+  options: [Option]
+  active: Boolean
+  enableUnitPrice: Boolean
+  saleFromDate: String
+  saleToDate: String
+  createdAt: String!
+  updatedAt: String!
+}
+
+type Product {
+  _id: ID
+  id: ID
+  imgCdn: String
+  imagesCdn: [String]
+  name: String
+  description: String
+  slug: String
+  img: String
+  images: [String]
+  options: [Option]
+  variants: [Variant]
+  enableZips: Boolean
+  zips: [String!]
+  category: Category
+  brand: Brand
+  parentBrand: Brand
+  color: Color
+  size: Size
+  parentCategory: Category
+  categories: [Category!]
+  categoryPool: [Category!]
+  collections: [Collection]
+  status: String
+  type: String
+  lat: Float
+  lng: Float
+  country: Country
+  stock: Int
+  formattedPrice: String
+  formattedMrp: String
+  price: Float
+  mrp: Float
+  discount: Float
+  time: String
+  sort: Int
+  daily: Boolean
+  vendor: Vendor
+  active: Boolean
+  info: String
+  title: String
+  metaTitle: String
+  metaDescription: String
+  keywords: String
+  keywordsA: [String]
+  position: Float
+  popularity: Float
+  trending: Boolean
+  featured: Boolean
+  hot: Boolean
+  new: Boolean
+  sale: Boolean
+  recommended: Boolean
+  hsn: String
+  barcode: String
+  group: String
+  gender: String
+  gtin: String
+  condition: String
+  sku: String
+  sales: Int
+  ratings: Float
+  reviews: Int
+  approved: Boolean
+  keyFeatures: [String]
+  features: [Feature]
+  productDetails: [Feature]
+  specifications: [Feature]
+  channels: [Channel]
+  createdAt: String!
+  updatedAt: String!
+  itemId: String
+  warranty: String
+  ageMin: Int
+  ageMax: Int
+  ageUnit: String
+  dimensionUnit: String
+  unit: String
+  styleCode: String
+  styleId: String
+  eanNo: String
+  articleCode: String
+  productMasterId: String
+  currency: String
+  manufacturer: String
+  returnInfo: String
+  link: String
+  countryOfOrigin: String
+  cgst: Float
+  sgst: Float
+  igst: Float
+  tax: Float
+  weight: Float
+  length: Float
+  width: Float
+  height: Float
+  colorGroup: [Product]
+  sizeGroup: [Product]
+  relatedProducts: [Product]
+  replaceAllowed: Boolean
+  returnAllowed: Boolean
+  returnValidityInDays: Int
+  replaceValidityInDays: Int
+  store: Store
+  files: [String]
+  googleMerchantProductId: String
+  sizechart: String
+  mfgDate: String
+  batchNo: String
+  expired: Boolean
+  expiryDate: String
+  hasStock: Boolean
+  isSearchable: Boolean
+  isUnlimited: Boolean
+  totalSold: Int
+  preOrder: Boolean
+  shippingCost: Float
+  minOrderQty: Int
+  maxOrderQty: Int
+  isCod: Boolean
+  foodType: String
+  deliveryDetails: String
+  trackInventory: Boolean
+  slots: [Slot]
+  tags: [Tag]
+}
+
+type OneProduct {
+  id: ID
+  imgCdn: String
+  imagesCdn: [String]
+  _id: ID
+  name: String
+  description: String
+  slug: String
+  img: String
+  images: [String]
+  options: [Option]
+  variants: [ID]
+  enableZips: Boolean
+  zips: [String!]
+  brand: ID
+  parentBrand: ID
+  color: Color
+  size: ID
+  unit: String
+  dimensionUnit: String
+  category: ID
+  parentCategory: ID
+  categories: [ID!]
+  categoryPool: [ID!]
+  collections: [ID]
+  status: String
+  type: String
+  lat: Float
+  lng: Float
+  country: ID
+  stock: Int
+  price: Float
+  mrp: Float
+  discount: Float
+  time: String
+  sort: Int
+  daily: Boolean
+  vendor: ID
+  active: Boolean
+  info: String
+  title: String
+  metaTitle: String
+  metaDescription: String
+  keywords: String
+  keywordsA: [String]
+  position: Float
+  popularity: Float
+  trending: Boolean
+  featured: Boolean
+  formattedPrice: String
+  formattedMrp: String
+  hot: Boolean
+  new: Boolean
+  sale: Boolean
+  recommended: Boolean
+  hsn: String
+  barcode: String
+  group: String
+  sku: String
+  sales: Int
+  ratings: Float
+  reviews: Int
+  approved: Boolean
+  keyFeatures: [String]
+  features: [ID]
+  productDetails: [Feature]
+  specifications: [Feature]
+  channels: [ID]
+  createdAt: String!
+  updatedAt: String!
+  gender: String
+  gtin: String
+  condition: String
+  itemId: String
+  warranty: String
+  link: String
+  ageMin: Int
+  ageMax: Int
+  ageUnit: String
+  styleCode: String
+  styleId: String
+  eanNo: String
+  articleCode: String
+  productMasterId: String
+  returnInfo: String
+  countryOfOrigin: String
+  currency: String
+  manufacturer: String
+  cgst: Float
+  sgst: Float
+  igst: Float
+  tax: Float
+  weight: Float
+  length: Float
+  width: Float
+  height: Float
+  relatedProducts: [OneProduct]
+  colorGroup: [String]
+  sizeGroup: [String]
+  replaceAllowed: Boolean
+  returnAllowed: Boolean
+  returnValidityInDays: Int
+  replaceValidityInDays: Int
+  store: ID
+  files: [String]
+  googleMerchantProductId: String
+  sizechart: String
+  mfgDate: String
+  batchNo: String
+  expired: Boolean
+  expiryDate: String
+  hasStock: Boolean
+  isSearchable: Boolean
+  isUnlimited: Boolean
+  totalSold: Int
+  preOrder: Boolean
+  shippingCost: Float
+  minOrderQty: Int
+  maxOrderQty: Int
+  isCod: Boolean
+  foodType: String
+  deliveryDetails: String
+  trackInventory: Boolean
+  tags: [ID]
+  slots: [ID]
+}
+
+input BadgeI {
+  trending: Boolean
+  recommended: Boolean
+  hot: Boolean
+  sale: Boolean
+  new: Boolean
+  featured: Boolean
+}
+
+type Badge {
+  trending: Boolean
+  recommended: Boolean
+  hot: Boolean
+  sale: Boolean
+  new: Boolean
+  featured: Boolean
+}
+
+type prodEs {
+  took: Int
+  count: Int
+  data: [prodEsData]
+}
+
+type prodEsData {
+  _index: String
+  _type: String
+  _id: String
+  _score: Int
+  _source: Product
+}
+
+type Promotion {
+  id: ID!
+  active: Boolean
+  used: Int
+  maxAmount: Float
+  maxUselimit: Int
+  oneUsePerCustomer: Boolean
+  name: String
+  description: String
+  featured: Boolean
+  img: String
+  imgCdn: String
+  platform: String
+  priority: Int
+  discount: Discount1
+  q: String
+  validFrom: String
+  validTo: String
+  store: Store
+  user: User
+  createdAt: String!
+  updatedAt: String!
+}
+
+type OnePromotion {
+  id: ID!
+  active: Boolean
+  used: Int
+  maxAmount: Float
+  maxUselimit: Int
+  oneUsePerCustomer: Boolean
+  name: String
+  description: String
+  featured: Boolean
+  img: String
+  imgCdn: String
+  platform: String
+  priority: Int
+  discount: Discount1
+  q: String
+  validFrom: String
+  validTo: String
+  store: ID
+  user: ID
+  createdAt: String!
+  updatedAt: String!
+}
+
+type promotionRes {
+  data: [Promotion]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type salesDayData {
+  _id: String
+  totalAmount: Float
+  qty: Int
+}
+
+type salesMonthData {
+  _id: String
+  totalAmount: Float
+  qty: Int
+}
+
+type salesProductData {
+  _id: Product
+  totalAmount: Float
+  qty: Int
+}
+
+type salesCustomerData {
+  _id: User
+  totalAmount: Float
+  qty: Int
+}
+
+type paymentTypeData {
+  _id: String
+  totalAmount: Float
+  qty: Int
+}
+
+type ReviewSummary {
+  avg: Float
+  count: Float
+  total: Float
+  reviews: [String]
+}
+
+type ReviewRes {
+  data: [Review]
+  count: Int
+  pageSize: Int
+  page: Int
+  total: Float
+  avg: Float
+}
+
+type Review {
+  id: ID!
+  pid: Product
+  variant: Variant
+  user: User
+  vendor: Vendor
+  message: String
+  votes: Vote
+  rating: Float
+  store: Store
+  active: Boolean
+  createdAt: String!
+  updatedAt: String!
+}
+
+type OneReview {
+  id: ID!
+  pid: ID
+  variant: ID
+  user: ID
+  vendor: ID
+  message: String
+  votes: Vote
+  rating: Float
+  store: ID
+  active: Boolean
+  createdAt: String!
+  updatedAt: String!
+}
+
+type Vote {
+  count: Float!
+  voters: [User!]!
+}
+
+type Role {
+  id: ID!
+  name: String
+  roles: [String]
+}
+
+type roleRes {
+  data: [Role]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type Query {
+  _: String
+  addresses(
+    page: Int
+    search: String
+    limit: Int
+    sort: String
+    store: ID
+  ): addressRes
+  myAddresses(
+    page: Int
+    search: String
+    limit: Int
+    sort: String
+    store: ID
+  ): addressRes
+  address(
+    # MongoDB ObjectId of address
+    id: ID!
+  ): Address
+  getLocation(lat: Float, lng: Float): Address
+  getLocationFromZip(zip: String!, country: String!): Address
+  getLocationFromZipIndia(zip: String!): Address
+  getCoordinatesFromZip(zip: String!): Coords
+  getNearbyVendors: [Address]
+  gListProduct(authCode: String!): [Product]
+  gGetProduct(productId: ID!, authCode: String!): Product
+  fbListProduct: [FBProduct]
+  fbProduct(fbProductId: String!): FBProduct
+  appointments(
+    page: Int
+    search: String
+    limit: Int
+    sort: String
+    type: String
+  ): appointmentRes
+  myAppointments(
+    page: Int
+    search: String
+    limit: Int
+    sort: String
+  ): appointmentRes
+  appointment(id: String!): Appointment
+  attributes(
+    page: Int
+    search: String
+    limit: Int
+    sort: String
+    store: ID
+  ): attributeRes
+  attribute(id: ID!): Attribute
+  categoryAttributes(category: ID!): attributeRes
+  banners(
+    page: Int
+    search: String
+    limit: Int
+    sort: String
+    type: String
+    pageId: String
+    groupId: String
+    groupTitle: String
+    isLinkExternal: Boolean
+    isMobile: Boolean
+    active: Boolean
+    store: ID
+  ): bannerRes
+  allBanners(
+    page: Int
+    search: String
+    limit: Int
+    sort: String
+    type: String
+    pageId: String
+    store: ID
+    active: Boolean
+    isLinkExternal: Boolean
+    isMobile: Boolean
+  ): bannerRes
+  banner(id: String!): OneBanner
+  bannerGroup(
+    groupId: String!
+    page: Int
+    search: String
+    limit: Int
+    sort: String
+    type: String
+    pageId: String
+    isLinkExternal: Boolean
+    isMobile: Boolean
+    active: Boolean
+    store: ID
+  ): bannerRes
+  groupByBanner(
+    type: String
+    pageId: String
+    groupTitle: String
+    active: Boolean
+    store: ID
+  ): [bannerGroup]
+  groupByBanner1(
+    type: String
+    pageId: String
+    groupTitle: String
+    store: ID
+  ): [bannerGroup1]
+  bankTransfers(
+    page: Int
+    search: String
+    limit: Int
+    sort: String
+    store: ID
+  ): bankTransferRes
+  bankTransfer(id: ID!): BankTransfer
+  blogs(
+    page: Int
+    search: String
+    limit: Int
+    sort: String
+    type: String
+    active: Boolean
+    store: ID
+  ): blogRes
+  blog(id: String!): Blog
+  brands(
+    page: Int
+    search: String
+    limit: Int
+    sort: String
+    featured: Boolean
+    parent: String
+    store: ID
+  ): brandRes
+  parentBrands(
+    page: Int
+    search: String
+    limit: Int
+    sort: String
+    featured: Boolean
+  ): brandRes
+  brand(id: String, slug: String, name: String): Brand
+  brand1(id: String, slug: String): OneBrand
+  carts(
+    page: Int
+    search: String
+    limit: Int
+    sort: String
+    type: String
+    active: Boolean
+    store: ID
+  ): cartRes
+  abandoned(
+    page: Int
+    search: String
+    limit: Int
+    sort: String
+    type: String
+    active: Boolean
+    store: ID
+  ): cartRes
+  cart(store: ID): Cart
+  cart1(store: ID): Cart
+  getCartQty(pid: ID!, vid: ID, options: String): Int!
+  megamenu(
+    id: ID
+    slug: String
+    search: String
+    sort: String
+    featured: Boolean
+    brand: ID
+    store: ID
+    domain: String
+  ): [Category]
+  categories(
+    page: Int
+    search: String
+    limit: Int
+    sort: String
+    level: Int
+    featured: Boolean
+    megamenu: Boolean
+    active: Boolean
+    img: Boolean
+    shopbycategory: Boolean
+    store: ID
+  ): categoryResSimple
+  allCategories(
+    page: Int
+    search: String
+    limit: Int
+    sort: String
+    level: Int
+    featured: Boolean
+    megamenu: Boolean
+    active: Boolean
+    shopbycategory: Boolean
+    store: ID
+  ): categoryRes
+  megamenuAll(
+    id: ID
+    search: String
+    sort: String
+    featured: Boolean
+  ): [CategorySimple]
+  category(id: String, slug: String): Category
+  categorySimple(id: String, slug: String): CategorySimple
+  categorySummary: TodaysSummary
+  attributeCategories(store: ID): [Category]
+  channels(
+    page: Int
+    skip: Int
+    limit: Int
+    search: String
+    sort: String
+    user: ID
+    q: String
+    upcoming: Boolean
+  ): ChannelRes
+  myChannels(
+    page: Int
+    skip: Int
+    limit: Int
+    search: String
+    sort: String
+    q: String
+  ): ChannelRes
+  fetchVimeo: String
+  channel(id: ID!): Channel
+  channel1(id: ID!): ChannelOne
+  channelList: [ChannelList]
+  zego: Zego
+  zegoWhiteBoard: Zego
+  neteaseToken(channel: String): AppKeyAndToken
+  getNeteaseChannel: Channel
+  getAllStoredVideos: neteaseVideoRes
+  locations(page: Int, search: String, limit: Int, sort: String): locationRes
+  location(id: String!): Location
+  collections(
+    page: Int
+    search: String
+    limit: Int
+    sort: String
+    active: Boolean
+    store: ID
+  ): collectionRes
+  collection(id: ID!): CollectionOne
+  collectionsProducts(ids: [ID!]): SearchRes
+  colors(
+    page: Int
+    search: String
+    limit: Int
+    sort: String
+    store: ID
+  ): colorRes
+  color(id: ID!): Color
+  countries(page: Int, search: String, limit: Int, sort: String): countryRes
+  country(id: String, slug: String): Country
+  couponsAdmin(
+    page: Int
+    search: String
+    limit: Int
+    sort: String
+    store: ID
+  ): couponRes
+  coupons(
+    page: Int
+    search: String
+    limit: Int
+    sort: String
+    store: ID
+  ): couponRes
+  coupon(id: ID!): Coupon
+  currencies(page: Int, search: String, limit: Int, sort: String): currencyRes
+  currency(id: ID!): Currency
+  customerMessages(
+    page: Int
+    search: String
+    limit: Int
+    sort: String
+    store: ID
+  ): CustomerMessageRes
+  customerMessage(id: ID!): CustomerMessage
+  deals(
+    page: Int
+    skip: Int
+    limit: Int
+    search: String
+    sort: String
+    active: Boolean
+    store: ID
+  ): DealRes
+  myDeals(
+    page: Int
+    skip: Int
+    limit: Int
+    search: String
+    sort: String
+    active: Boolean
+    store: ID
+  ): DealRes
+  listDeals(
+    page: Int
+    skip: Int
+    limit: Int
+    search: String
+    sort: String
+    active: Boolean
+    store: ID
+  ): DealRes
+  deal(id: ID!): Deal
+  startDeal(id: ID!): Boolean
+  endDeal(id: ID!): Boolean
+  dealOne(id: ID!): DealOne
+  discounts(
+    page: Int
+    search: String
+    limit: Int
+    sort: String
+    store: ID
+  ): discountRes
+  discount(id: ID!): Discount
+  templates(
+    page: Int
+    search: String
+    limit: Int
+    sort: String
+    store: ID
+  ): TemplateRes
+  template(id: ID!): Template
+  events(
+    page: Int
+    search: String
+    limit: Int
+    sort: String
+    type: String
+    active: Boolean
+  ): eventRes
+  event(id: String!): Event
+  eventOnDate(id: String!, date: String!): Event
+  faqs(
+    page: Int
+    search: String
+    limit: Int
+    sort: String
+    type: String
+    active: Boolean
+    store: ID
+  ): faqRes
+  faq(id: String!): Faq
+  faq1(id: ID!): faqOne
+  faqTopics(
+    page: Int
+    search: String
+    limit: Int
+    sort: String
+    type: String
+    active: Boolean
+  ): faqTopicRes
+  faqTopic(id: String!): FaqTopic
+  tokens(
+    page: Int
+    search: String
+    limit: Int
+    sort: String
+    user_type: String
+  ): fcmTokenRes
+  myTokens(page: Int, search: String, limit: Int, sort: String): fcmTokenRes
+  features(
+    page: Int
+    search: String
+    limit: Int
+    sort: String
+    store: ID
+  ): featureRes
+  feature(id: String!): Feature
+  productFeatures(product: ID!): featureRes
+  gdprDataDeleteRequests(
+    page: Int
+    search: String
+    limit: Int
+    sort: String
+  ): gdprDataDeleteRequestRes
+  getGdprDataDeleteRequest(id: ID): GdprDataDeleteRequest
+  globalOptions(
+    page: Int
+    search: String
+    limit: Int
+    sort: String
+  ): globalOptionRes
+  globalOption(id: ID!): GlobalOption
+  globalOptionValues(
+    page: Int
+    search: String
+    limit: Int
+    sort: String
+    global_option_id: ID
+  ): globalOptionValueRes
+  globalOptionValue(id: ID!): GlobalOptionValue
+  channelMessages(
+    channel: String!
+    page: Int
+    search: String
+    limit: Int
+    sort: String
+  ): InstantMessageRes
+  importDetails(
+    importNo: String
+    type: String
+    success: String
+    page: Int
+    search: String
+    where: String
+    limit: Int
+    sort: String
+  ): importDetailRes
+  inventories(
+    page: Int
+    search: String
+    limit: Int
+    sort: String
+    type: String
+    product: ID!
+  ): inventoryRes
+  inventory(id: ID!): Inventory
+  influencers(
+    product: ID!
+    page: Int
+    search: String
+    limit: Int
+    sort: String
+  ): InfluencerRes
+  influencer(id: ID!): Influencer
+  languages(page: Int, search: String, limit: Int, sort: String): languageRes
+  language(id: ID!): Language
+  medias: [Media!]
+  media(id: ID!): Media
+  transcodeVideo(uri: String): String
+  getVideoLink(uri: String): String
+  options(product: ID!): optionRes
+  option(id: ID!): Option
+  optionValues(
+    page: Int
+    search: String
+    limit: Int
+    sort: String
+    option: ID
+  ): optionValueRes
+  optionValue(id: ID!): OptionValue
+  hasOrder(product: ID!): Boolean
+  validateCart: Boolean
+  validateCoupon: Boolean
+  allOrders(
+    page: Int
+    skip: Int
+    limit: Int
+    search: String
+    sort: String
+    vendor: String
+    user: String
+    today: Boolean
+    status: String
+    where: String
+    store: ID
+  ): orderRes
+  orders(
+    page: Int
+    skip: Int
+    limit: Int
+    search: String
+    sort: String
+    vendor: String
+    user: String
+    today: Boolean
+    status: String
+    where: String
+    store: ID
+  ): orderItemRes
+  orderItems(
+    page: Int
+    skip: Int
+    limit: Int
+    search: String
+    sort: String
+    user: String
+    today: Boolean
+    status: String
+    where: String
+  ): orderItemRes
+  order(id: ID!): Order
+  vendorOrders(vendor: ID!, status: String): orderRes
+  orderSummary: TodaysSummary
+  statusSummary: [StatusSummary]
+  paymentsSummary: TodaysSummary
+  vendorSummary: [TodaysSummary]
+  byVendor: DeliveryByVendor
+  dailySales: [salesData]
+  delivery: delivery
+  paymentMethodSummary(vendor: ID): [MethodsSummary]
+  myOrders(
+    page: Int
+    skip: Int
+    limit: Int
+    search: String
+    sort: String
+    status: String
+    where: String
+    store: ID
+  ): orderRes
+  myOrderItems(
+    page: Int
+    skip: Int
+    limit: Int
+    search: String
+    sort: String
+    status: String
+    where: String
+    store: ID
+  ): orderItemRes
+  ordersByStatus(
+    page: Int
+    skip: Int
+    limit: Int
+    search: String
+    sort: String
+    status: String!
+  ): myCustomerRes
+  ordersForPickup(
+    page: Int
+    skip: Int
+    limit: Int
+    search: String
+    sort: String
+    status: String!
+    vendor: ID!
+  ): myCustomerRes
+  myCustomers(
+    page: Int
+    skip: Int
+    limit: Int
+    search: String
+    sort: String
+  ): userRes
+  customers(
+    page: Int
+    skip: Int
+    limit: Int
+    search: String
+    sort: String
+    store: ID
+  ): orderItemRes
+  orderItem(id: ID!): OrderItem
+  orderStatus(id: ID!): OrderStatusRes
+  orderStatusOfOrder(order_id: ID!): [OrderStatusRes]
+  pages(page: Int, search: String, limit: Int, sort: String, store: ID): pageRes
+  page(id: String): Page
+  pageSlug(slug: String): Page
+  payments(
+    page: Int
+    skip: Int
+    limit: Int
+    search: String
+    sort: String
+    store: ID
+  ): PayRes
+  payment(id: ID!): Payment
+  razorpays: Payment
+  paymentMethods(
+    page: Int
+    skip: Int
+    limit: Int
+    search: String
+    sort: String
+    store: ID
+    active: Boolean
+  ): PayMethodRes
+  paymentMethodsAdmin(
+    page: Int
+    skip: Int
+    limit: Int
+    search: String
+    sort: String
+    store: ID
+    active: Boolean
+  ): PayMethodRes
+  paymentMethod(id: ID!): PaymentMethod
+  variants(page: Int, search: String, limit: Int, sort: String): variantRes
+  variant(id: String!): Variant
+  productsByIds(ids: [ID!]): [Product]
+  getVariant(pid: ID!, options: [NameValIp]): Variant
+  uploads: [File]
+  productsEsTruncate: Boolean
+  productsSync: Boolean
+  autocompleteEsSync: Boolean
+  productEs(query: String): prodEs
+  products(
+    page: Int
+    skip: Int
+    limit: Int
+    search: String
+    city: String
+    type: String
+    sort: String
+    sku: String
+    name: String
+    vendor: String
+    category: String
+    brand: String
+    parentBrand: String
+    store: ID
+    active: Boolean
+    trending: Boolean
+    sale: Boolean
+    new: Boolean
+    hot: Boolean
+    featured: Boolean
+    recommended: Boolean
+    status: String
+    price: String
+    types: [String]
+    where: String
+  ): SearchRes
+  trending(type: String, store: ID): [Product]
+  youMayLike(store: ID): [Product]
+  recommended(store: ID): [Product]
+  inactiveProducts: Int
+  myProducts(
+    page: Int
+    skip: Int
+    limit: Int
+    search: String
+    city: String
+    type: String
+    sort: String
+    sku: String
+    name: String
+    vendor: String
+    category: String
+    brand: String
+    parentBrand: String
+    store: ID
+    active: Boolean
+    trending: Boolean
+    sale: Boolean
+    new: Boolean
+    hot: Boolean
+    featured: Boolean
+    recommended: Boolean
+    status: String
+    price: String
+    where: String
+  ): SearchRes
+  product1(id: ID!): OneProduct
+  product(id: ID!, zip: String, optionValues: [ID]): Product
+  nextProduct(id: ID!): OneProduct
+  prevProduct(id: ID!): OneProduct
+  popular(
+    page: Int
+    skip: Int
+    limit: Int
+    search: String
+    sort: String
+    q: String
+    store: ID
+    zip: String
+  ): SearchRes
+  bestSellers(zip: String): BestSellers
+  productSlug(slug: String!): Product
+  search(
+    page: Int
+    skip: Int
+    limit: Int
+    location: ID
+    country: ID
+    zip: String
+    foodType: String
+    search: String
+    sort: String
+    q: String
+  ): SearchRes
+  productSummary: TodaysSummary
+  noStock(
+    page: Int
+    skip: Int
+    limit: Int
+    search: String
+    sort: String
+    category: String
+    store: ID
+    active: Boolean
+  ): SearchRes
+  noImage(
+    page: Int
+    skip: Int
+    limit: Int
+    search: String
+    sort: String
+    category: String
+    store: ID
+    active: Boolean
+  ): SearchRes
+  noPrice(
+    page: Int
+    skip: Int
+    limit: Int
+    search: String
+    sort: String
+    category: String
+    store: ID
+    active: Boolean
+  ): SearchRes
+  invalidPrice(
+    page: Int
+    skip: Int
+    limit: Int
+    search: String
+    sort: String
+    category: String
+    store: ID
+    active: Boolean
+  ): SearchRes
+  noDescription(
+    page: Int
+    skip: Int
+    limit: Int
+    search: String
+    sort: String
+    category: String
+    store: ID
+    active: Boolean
+  ): SearchRes
+  invalidVendor(
+    page: Int
+    skip: Int
+    limit: Int
+    search: String
+    sort: String
+    category: String
+    store: ID
+    active: Boolean
+  ): SearchRes
+  master_id_product(
+    page: Int
+    skip: Int
+    limit: Int
+    search: String
+    sort: String
+    productMasterId: String!
+    active: Boolean
+  ): SearchRes
+  product_group(id: ID!): GroupRes
+  promotionsAdmin(
+    page: Int
+    search: String
+    limit: Int
+    sort: String
+    store: ID
+  ): promotionRes
+  promotions(
+    page: Int
+    search: String
+    limit: Int
+    sort: String
+    store: ID
+  ): promotionRes
+  promotion(id: ID!): Promotion
+  salesByDay: [salesDayData]
+  salesByMonth: [salesMonthData]
+  salesByProduct: [salesProductData]
+  salesByCustomer: [salesCustomerData]
+  paymentsByType: [paymentTypeData]
+  reviews(
+    page: Int
+    skip: Int
+    limit: Int
+    search: String
+    sort: String
+    q: String
+    store: ID
+  ): ReviewRes
+  reviewSummary(pid: ID!): ReviewSummary
+  productReviews(
+    pid: ID!
+    page: Int
+    skip: Int
+    limit: Int
+    search: String
+    sort: String
+    active: Boolean
+    q: String
+  ): ReviewRes
+  review(id: ID!): Review
+  roles(page: Int, search: String, limit: Int, sort: String): roleRes
+  role(id: ID!): Role
+  allScheduleDemos(
+    page: Int
+    skip: Int
+    limit: Int
+    search: String
+    sort: String
+    q: String
+  ): ScheduleDemoRes
+  scheduleDemos(
+    page: Int
+    skip: Int
+    limit: Int
+    search: String
+    sort: String
+    q: String
+    store: ID
+  ): ScheduleDemoRes
+  myScheduleDemos(
+    page: Int
+    skip: Int
+    limit: Int
+    search: String
+    sort: String
+    q: String
+  ): ScheduleDemoRes
+  scheduleDemo(id: ID!): ScheduleDemo
+  popularSearches(
+    page: Int
+    search: String
+    limit: Int
+    sort: String
+    store: ID
+    domain: String
+  ): PopularSearchRes
+  popularSearch(id: ID!): PopularSearch
+  shutter: Boolean
+  worldCurrencies: [String!]
+  shippingProviders: [String!]
+  orderStatuses: [OrderStatus!]
+  paymentStatuses: [String!]
+  returnReasons: [String!]
+  sorts: [NameVal!]
+  timesList: [String!]
+  userRoles: [String!]
+  settings: Setting
+  settingsAdmin: Setting
+  shippoAddressServiceable(addressId: ID!): Boolean
+  shippoAddressServiceableOne(address: AddressInput!): Boolean
+  shippoCarriers: Boolean
+  shippoLabels(page: Int, limit: Int): shippoLabelRes
+  pickrrServiceability(fromAddressId: ID!, toAddressId: ID!): Boolean
+  shippingMethods(
+    page: Int
+    skip: Int
+    limit: Int
+    search: String
+    sort: String
+    q: String
+  ): ShippingMethodRes
+  shippingMethod(id: ID!): ShippingMethod
+  sizes(page: Int, search: String, limit: Int, sort: String, store: ID): sizeRes
+  size(id: ID!): Size
+  slots(
+    page: Int
+    skip: Int
+    limit: Int
+    search: String
+    sort: String
+    store: ID
+  ): SlotRes
+  slot(id: ID!): Slot
+  states(
+    page: Int
+    search: String
+    limit: Int
+    sort: String
+    country: ID
+    countryCode: String
+  ): stateRes
+  state(id: String, slug: String): State
+  stores(
+    page: Int
+    search: String
+    limit: Int
+    sort: String
+    vendor: ID
+  ): storeRes
+  syncStores: Boolean
+  store: OneStore
+  storeOne(id: ID, slug: String, domain: String): Store
+  storeCountries(
+    page: Int
+    skip: Int
+    limit: Int
+    search: String
+    sort: String
+    store: ID!
+  ): StoreCountryRes
+  storeCountry(id: ID!): StoreCountry
+  storeCurrencies(
+    page: Int
+    skip: Int
+    limit: Int
+    search: String
+    sort: String
+    store: ID!
+  ): StoreCurrencyRes
+  storeCurrency(id: ID!): StoreCurrency
+  storeLanguages(
+    page: Int
+    skip: Int
+    limit: Int
+    search: String
+    sort: String
+    store: ID!
+  ): StoreLanguageRes
+  storeLanguage(id: ID!): StoreLanguage
+  subscribes(page: Int, search: String, limit: Int, sort: String): subscribeRes
+  mySubscribes(
+    page: Int
+    search: String
+    limit: Int
+    sort: String
+  ): subscribeRes
+  subscribe(id: ID!): Subscribe
+  isSubscribed(subscriptionId: ID): Boolean
+  subscriptions(
+    page: Int
+    search: String
+    limit: Int
+    sort: String
+    active: Boolean
+  ): subscriptionRes
+  subscription(id: ID!): SaasSubscription
+  units(page: Int, search: String, limit: Int, sort: String): unitRes
+  unit(id: ID!): Unit
+  me: UserOne
+  users(
+    page: Int
+    search: String
+    limit: Int
+    sort: String
+    role: String
+    store: ID
+  ): userRes
+  allUsers(
+    page: Int
+    search: String
+    limit: Int
+    sort: String
+    role: String
+    store: ID
+  ): userRes
+  user(id: String!): UserOne
+  userSummary: TodaysSummary
+  fcmToken: Boolean
+  vendors(
+    page: Int
+    skip: Int
+    limit: Int
+    search: String
+    sort: String
+    store: ID
+    categories: [ID]
+  ): vendorRes
+  storeVendors(store: ID!): vendorRes
+  topVendors(limit: Int): [Vendor]
+  vendor(id: ID): Vendor
+  vendor1(id: ID): OneVendor
+  vendor2(id: ID, slug: String): Vendor
+  randomVendors(store: ID): [Vendor]
+  vendorProfile(vendor: ID!): Vendor
+  videos(
+    page: Int
+    skip: Int
+    search: String
+    category: String
+    subject: String
+    limit: Int
+    sort: String
+  ): videoRes
+  myVideos(
+    page: Int
+    search: String
+    category: String
+    subject: String
+    limit: Int
+    sort: String
+  ): videoRes
+  video(id: String, slug: String): Video
+  videosByIds(ids: [ID!]): [Video]
+  wishlists(
+    page: Int
+    search: String
+    limit: Int
+    sort: String
+    store: ID
+  ): wishlistRes
+  myWishlist(
+    page: Int
+    search: String
+    limit: Int
+    sort: String
+    store: ID
+  ): wishlistRes
+  checkWishlist(product: ID!, variant: ID!): Boolean
+  referrals(page: Int, search: String, limit: Int, sort: String): referralRes
+  myReferrals(page: Int, search: String, limit: Int, sort: String): referralRes
+  referral(id: ID!): Referral
+  wallets(
+    page: Int
+    skip: Int
+    limit: Int
+    search: String
+    sort: String
+  ): WalletRes
+  myWallet: OneWallet
+  wallet(id: ID!): Wallet
+  walletTransactions(
+    page: Int
+    skip: Int
+    limit: Int
+    search: String
+    sort: String
+  ): WalletTransactionRes
+  myWalletTransactions(
+    page: Int
+    skip: Int
+    limit: Int
+    search: String
+    sort: String
+  ): WalletTransactionRes
+  walletTransaction(id: ID!): WalletTransaction
+  withdrawals(
+    page: Int
+    skip: Int
+    limit: Int
+    search: String
+    sort: String
+  ): WithdrawalRes
+  withdrawal(id: ID!): Withdrawal
+  tags(page: Int, search: String, limit: Int, sort: String, store: ID): tagRes
+  myTags(page: Int, search: String, limit: Int, sort: String, store: ID): tagRes
+  tag(id: ID!): Tag
+}
+
+type Mutation {
+  _: String
+  deleteAddress(id: ID!): Boolean
+  addAddress(
+    email: String
+    firstName: String
+    lastName: String
+    type: String
+    address: String
+    locality: String
+    town: String
+    city: String
+    district: String
+    company: String
+    country: String
+    state: String
+    lat: Float
+    lng: Float
+    zip: String
+    phone: String
+    isResidential: Boolean
+    store: ID
+  ): Address
+  saveAddress(
+    id: String!
+    email: String
+    firstName: String
+    lastName: String
+    type: String
+    address: String
+    locality: String
+    town: String
+    district: String
+    city: String
+    country: String
+    state: String
+    lat: Float
+    lng: Float
+    zip: String
+    phone: String
+    active: Boolean
+    isResidential: Boolean
+    store: ID
+  ): Address
+  updateAddress(
+    id: ID!
+    email: String
+    firstName: String
+    lastName: String
+    type: String
+    address: String
+    locality: String
+    town: String
+    district: String
+    city: String
+    country: String
+    state: String
+    lat: Float
+    lng: Float
+    zip: String
+    phone: String
+    deliveryInstructions: String
+    active: Boolean
+    isResidential: Boolean
+    store: ID
+  ): Address
+  gInsertProduct(productId: ID!, authCode: String!): Boolean
+  gDeleteProduct(productId: ID!, authCode: String!): Boolean
+  SyncProductsToGoogle(
+    authCode: String!
+    category: String
+    batchId: String!
+    contentLanguage: String
+    targetCountry: String
+  ): Int
+  fbInsertProduct(productId: ID!): Boolean
+  SyncProductsToFacebook: Int
+  fbDeleteProduct(productId: String!): Boolean
+  bookAppointment(
+    event: ID!
+    from: String
+    to: String
+    date: String
+  ): OneAppointment
+  requestAppointment(phone: String, email: String, event: ID!): OneAppointment
+  updateAppointment(id: ID!, status: String): OneAppointment
+  deleteAppointment(id: ID!): Boolean
+  removeAttribute(id: ID!): Boolean
+  saveAttribute(
+    id: String
+    name: String
+    category: ID
+    show: Boolean
+    active: Boolean
+    store: ID
+  ): Attribute
+  importAttribute(file: Upload!): Boolean
+  saveBanner(
+    id: String!
+    link: String
+    heading: String
+    img: String
+    type: String
+    groupId: String
+    groupTitle: String
+    pageId: String
+    isLinkExternal: Boolean
+    isMobile: Boolean
+    sort: Int
+    active: Boolean
+    store: ID
+  ): OneBanner
+  deleteBanner(id: ID!): Boolean
+  importBanner(file: Upload!): String
+  updateAllBanner: Int
+  createBankTransfer(
+    type: String!
+    amount: Float
+    reference: String
+    remark: String
+    paymentMethodId: String
+    store: ID!
+  ): OneBankTransfer
+  saveBankTransfer(
+    id: String!
+    type: String
+    amount: Float
+    reference: String
+    remark: String
+    paymentMethodId: String
+    verified: Boolean
+    user: ID
+  ): OneBankTransfer
+  deleteBankTransfer(id: ID!): OneBankTransfer
+  saveBlog(
+    id: String!
+    title: String
+    slug: String
+    excerpt: String
+    content: String
+    published_at: String
+    tags: [String]
+    img: String
+    status: String
+    active: Boolean
+    store: ID
+  ): OneBlog
+  deleteBlog(id: ID!): Boolean
+  importBlog(file: Upload!): String
+  saveBrand(
+    id: String!
+    brandId: String
+    name: String
+    slug: String
+    parent: ID
+    img: String
+    info: String
+    meta: String
+    metaTitle: String
+    metaDescription: String
+    metaKeywords: String
+    position: Int
+    facebookUrl: String
+    twitterUrl: String
+    linkedinUrl: String
+    youtubeUrl: String
+    pinterestUrl: String
+    googleUrl: String
+    instaUrl: String
+    featured: Boolean
+    active: Boolean
+    banner: String
+    store: ID
+  ): OneBrand
+  deleteBrand(id: ID!): Boolean
+  syncBrands: Int
+  importBrand(file: Upload!): String
+  updateAllBrand: Int
+  addToCart(
+    pid: ID!
+    vid: ID
+    options: [OptionIp1]
+    vendor: ID
+    qty: Int!
+    replace: Boolean
+  ): Cart
+  clearCart: Boolean
+  deleteCart(id: ID!): Boolean
+  changeCartCurrency(store: ID!, storeCurrency: ID!): Boolean
+  refreshCategorySlug: Boolean
+  saveCategory(
+    id: String!
+    name: String
+    description: String
+    categoryId: String
+    parent: ID
+    brand: ID
+    slug: String
+    refreshSlug: Boolean
+    img: String
+    banner: String
+    keywords: String
+    level: Int
+    link: String
+    meta: String
+    metaTitle: String
+    metaDescription: String
+    metaKeywords: String
+    position: Int
+    megamenu: Boolean
+    featured: Boolean
+    featuredSort: Float
+    active: Boolean
+    shopbycategory: Boolean
+    store: ID
+  ): CategorySimple
+  deleteCategory(id: ID!): Boolean
+  deleteAllCategories(password: String!): Int
+  changeParentOfCategory(catId: ID!, parentCatId: ID!): Boolean
+  importCategory(file: Upload!): String
+  updateAllCategory: Int
+  saveChannel(
+    id: String!
+    title: String
+    img: String
+    isLive: Boolean
+    product: ID
+    products: [ID]
+    scheduleDateTime: String
+    users: [ID]
+  ): Channel
+  deleteChannel(id: ID!): Boolean
+  rtcToken(channel: String, isPublisher: Boolean): tokenRes
+  pushToNeteaseCDN(
+    cname: String
+    cid: Int
+    taskId: String
+    streamUrl: String
+    layout: String
+    record: Boolean
+    version: Float
+  ): Boolean
+  removeLocation(id: ID!): Boolean
+  saveLocation(
+    id: String
+    name: String
+    country: String
+    active: Boolean
+    lat: Float
+    lng: Float
+    zip: String
+    zips: [String]
+  ): Location
+  saveCollection(
+    id: String!
+    name: String
+    products: [ID]
+    description: String
+    active: Boolean
+    images: [String]
+    img: String
+    q: String
+    sort: String
+    type: String
+    store: ID
+  ): Collection
+  deleteCollection(id: ID!): Boolean
+  removeColor(id: ID!): Boolean
+  saveColor(
+    id: String!
+    name: String
+    val: String
+    color_code: String
+    slug: String
+    info: String
+    featured: Boolean
+    active: Boolean
+    store: ID
+  ): OneColor
+  importColor(file: Upload!): String
+  saveCountry(
+    id: String
+    name: String
+    slug: String
+    value: String
+    dialCode: String
+    code: String
+    img: String
+    flag: String
+    lang: String
+    sort: Int
+    active: Boolean
+  ): Country
+  deleteCountry(id: ID!): Boolean
+  applyCoupon(code: String!): Cart
+  removeCoupon: Cart
+  deleteCoupon(id: ID!): OneCoupon
+  saveCoupon(
+    id: String
+    isMultiple: Boolean
+    howMany: Int
+    code: String
+    color: String
+    description: String
+    discount: DiscountIp
+    info: String
+    msg: String
+    text: String
+    terms: String
+    maxAmount: Int
+    name: String
+    maxUselimit: Int
+    oneUsePerCustomer: Boolean
+    oneUsePerUniqueCode: Boolean
+    validFrom: String
+    validTo: String
+    active: Boolean
+    store: ID
+  ): OneCoupon
+  removeCurrency(id: ID!): Boolean
+  saveCurrency(
+    id: String
+    name: String
+    sort: Int
+    isoCode: String
+    isoNumericCode: Int
+    thousandsSeparator: String
+    decimalMark: String
+    symbolFirst: Boolean
+    active: Boolean
+    symbol: String
+    disambiguateSymbol: String
+    htmlEntity: String
+    subUnit: String
+    smallestDenomination: Float
+    subunitToUnit: Float
+  ): Currency
+  saveCustomerMessage(
+    id: String!
+    name: String
+    email: String
+    message: String
+    store: ID
+  ): OneCustomerMessage
+  deleteCustomerMessage(id: ID!): Boolean
+  deleteAllCustomerMessage: Boolean
+  createDeal(
+    name: String
+    description: String
+    startTime: String
+    endTime: String
+    startTimeISO: String
+    endTimeISO: String
+    onGoing: Boolean
+    products: [String]
+    dealStatus: Boolean
+    active: Boolean
+    store: ID
+  ): DealOne
+  updateDeal(
+    id: ID!
+    name: String
+    description: String
+    startTime: String
+    endTime: String
+    startTimeISO: String
+    endTimeISO: String
+    onGoing: Boolean
+    products: [String]
+    dealStatus: Boolean
+    active: Boolean
+    store: ID
+  ): DealOne
+  saveDeal(
+    id: ID
+    name: String
+    description: String
+    img: String
+    startTime: String
+    endTime: String
+    startTimeISO: String
+    endTimeISO: String
+    onGoing: Boolean
+    products: [String]
+    dealStatus: Boolean
+    active: Boolean
+    store: ID
+  ): DealOne
+  removeDeal(id: ID!): Boolean
+  deleteDiscount(id: ID!): Boolean
+  saveDiscount(
+    id: String!
+    active: Boolean
+    amount: Float
+    applyOn: String
+    description: String
+    img: String
+    name: String
+    q: String
+    ruleType: String
+    type: String
+    maximumUsage: Int
+    startDate: String
+    endDate: String
+    numberOfTimeUsed: Int
+    seller: ID
+  ): Discount
+  deleteTemplate(id: ID!): Boolean
+  saveTemplate(
+    id: String!
+    name: String
+    fileName: String
+    title: String
+    description: String
+    icon: String
+    content: String
+    variables: [String]
+    active: Boolean
+    store: ID
+  ): OneTemplate
+  saveEvent(id: String!, active: Boolean, rules: [ruleIp]): eventOne
+  deleteEvent(id: ID!): Boolean
+  saveFaq(
+    id: String!
+    question: String
+    topic: String
+    answer: String
+    active: Boolean
+    opened: Boolean
+    store: ID
+  ): faqOne
+  deleteFaq(id: ID!): Boolean
+  importFaq(file: Upload!): String
+  saveFaqTopic(
+    id: String!
+    name: String
+    for: String
+    active: Boolean
+  ): FaqTopic
+  deleteFaqTopic(id: ID!): Boolean
+  saveFcmToken(
+    id: String!
+    token: String
+    platform: String
+    device_id: String
+    active: Boolean
+  ): FcmToken
+  notifyFirebase(
+    id: String
+    token: String
+    platform: String
+    device_id: String
+    user_type: String
+    active: Boolean
+  ): FcmToken
+  deleteFcmToken(id: ID!): Boolean
+  removeFeature(id: ID!): Boolean
+  saveFeature(
+    id: String
+    name: String
+    value: String
+    type: String
+    product: ID
+    store: ID
+    active: Boolean
+  ): OneFeature
+  gdprDataDeleteRequest(
+    description: String
+    reason: String
+  ): GdprDataDeleteRequestOne
+  gdprDataDeleteProcess(
+    id: ID!
+    status: String!
+    comment: String
+  ): GdprDataDeleteRequestOne
+  removeGlobalOption(id: ID!): Boolean
+  saveGlobalOption(
+    id: String!
+    name: String
+    key: String
+    val: String
+    categories: [String]
+    position: Int
+    slug: String
+    info: String
+    isFilter: Boolean
+    preselect: Boolean
+    required: Boolean
+    type: String
+    active: Boolean
+  ): GlobalOption
+  removeGlobalOptionValue(id: ID!): Boolean
+  saveGlobalOptionValue(
+    id: String!
+    global_option_id: ID
+    name: String
+    default: Boolean
+    slug: String
+    position: Int
+    active: Boolean
+  ): GlobalOptionValue
+  sendInstantMessage(channel: String!, message: String): InstantMessage
+  deleteImportDetails(type: String!): Int
+  saveInventory(
+    product: ID!
+    quantity: Int
+    action: String!
+    reason: String
+    notes: String
+  ): OneInventory
+  saveInfluencer(id: String!, product: ID, videos: [String]): Influencer
+  deleteInfluencer(id: ID!): Boolean
+  removeLanguage(id: ID!): Boolean
+  saveLanguage(
+    id: String
+    active: Boolean
+    code: String
+    name: String
+    nativeName: String
+    phpLocaleCode: String
+    rtl: Boolean
+    sort: Int
+  ): OneLanguage
+  singleUpload(
+    file: Upload!
+    folder: String
+    productId: ID
+  ): UploadedFileResponse
+  fileUpload(
+    files: [Upload!]
+    folder: String
+    productId: ID
+  ): [UploadedFileResponse]
+  uploadVideo(files: [Upload!], folder: String): [Video]
+  deleteFile(url: String): File
+  createMedia(
+    originalFilename: String
+    src: String
+    path: String
+    size: String
+    type: String
+    name: String
+    use: String
+    active: Boolean
+  ): Media
+  createBlobContainer(folder: String!): UploadedFileResponse
+  removeOption(id: ID!): Boolean
+  saveOption(
+    id: String
+    name: String
+    inputType: String
+    preselectDefault: Boolean
+    position: Int
+    product: ID
+    required: Boolean
+  ): OneOption
+  removeOptionValue(id: ID!): Boolean
+  saveOptionValue(
+    id: String!
+    option: ID
+    name: String
+    direction: String
+    isPercent: Boolean
+    default: Boolean
+    value: Float
+    position: Int
+  ): OptionValue
+  create(id: ID!, body: String!): Order
+  createOrder(address: ID, user: ID!, items: [ItemIp!]): Order
+  checkout(paymentMethod: String, address: ID, slot: ID): Order
+  updateOrderItem(
+    id: ID!
+    status: String
+    tracking: String
+    trackingId: String
+    returnTrackingId: String
+    courierName: String
+    returnCourierName: String
+  ): OrderItem
+  updateOrder(
+    id: ID!
+    pid: ID!
+    status: String
+    tracking: String
+    trackingId: String
+    returnTrackingId: String
+    courierName: String
+    returnCourierName: String
+  ): Order
+  collectPayment(id: ID!, codPaid: Float): Boolean
+  paySuccessPageHit(orderId: ID, paymentReferenceId: String): Order
+  returnOrReplace(
+    orderItemId: ID!
+    requestType: String!
+    address: ID
+    reason: String!
+    comment: String
+  ): OrderItem
+  approveOrCancelReplacement(id: ID!, action: String!): OrderItem
+  downloadInvoice(orderItemId: ID!): Order
+  removeOrderStatus(id: ID!): Boolean
+  saveOrderStatus(
+    id: String!
+    order: ID
+    item: ID
+    event: String
+    tracking_id: String
+    type: String
+    courier_name: String
+    active: Boolean
+  ): OrderStatusRes
+  removePage(id: ID!): Boolean
+  savePage(
+    id: String
+    name: String
+    title: String
+    slug: String
+    metaDescription: String
+    keywords: String
+    content: String
+    menuTitle: String
+    active: Boolean
+  ): OnePage
+  importPage(file: Upload!): String
+  razorpay(address: ID, slot: ID): OnePayment
+  capturePay(paymentId: String!, oid: String!): Order
+  stripe(paymentMethodId: String, address: ID, slot: ID): OnePayment
+  stripeCapture(paymentIntentId: String!): Order
+  stripeCancel(paymentIntentId: String!): Order
+  stripeMobile(address: ID, slot: ID): OnePayment
+  paytmPayNow(address: ID, slot: ID): OnePayment
+  paytmCapturePay(paymentId: String!, oid: String!): Order
+  cashfreePayNow(address: ID, slot: ID): CashfreeRes
+  cashfreeCapturePay(paymentId: String!, oid: String!): Order
+  OrderRefund(
+    orderItemId: ID!
+    qty: Int!
+    amount: Float!
+    note: String!
+    email: String!
+    password: String!
+  ): OrderItem
+  paymentConfirmation(paymentId: ID!): OnePayment
+  cashfreePayNowNew(address: ID, slot: ID): Payment
+  paypalPayNow(address: ID, slot: ID): PayPalRes
+  paypalExecute(PayerID: String!, paymentId: String!, token: String): Order
+  paypalCancel(token: String!): Order
+  paypalConfirmation(paymentId: String!): Order
+  braintreeToken(address: ID, slot: ID): OnePayment
+  braintreeMakePayment(nonce: String!, token: String!): Order
+  savePaymentMethod(
+    id: String!
+    name: String
+    value: String
+    img: String
+    color: String
+    position: Int
+    key: String
+    text: String
+    qrcode: String
+    type: String
+    instructions: String
+    featured: Boolean
+    active: Boolean
+  ): PaymentMethod
+  deletePaymentMethod(id: ID!): Boolean
+  test: Boolean
+  deleteAllProducts(password: String!, force: Boolean): Int
+  deleteProductViaBarcode(barcodes: [String!]!, force: Boolean): Int
+  removeVariant(id: ID!): Boolean
+  deleteProduct(id: ID): Boolean
+  createProduct(
+    name: String
+    description: String
+    type: String
+    location: ID
+    price: Float
+    stock: Int
+    img: String
+    time: String
+    category: ID
+    categories: [String]
+  ): Product
+  saveVariant(
+    pid: ID!
+    id: String
+    name: String
+    stock: Float
+    weight: Float
+    length: Float
+    height: Float
+    width: Float
+    barcode: String
+    trackInventory: Boolean
+    sku: String
+    mrp: Float
+    price: Float
+    img: String
+    images: [String]
+    sort: Int
+    active: Boolean
+    options: [OptionIp]
+  ): Variant
+  saveProduct(
+    id: String!
+    name: String
+    slug: String
+    description: String
+    type: String
+    lat: Float
+    lng: Float
+    country: ID
+    price: Float
+    mrp: Float
+    stock: Int
+    img: String
+    images: [String]
+    isSearchable: Boolean
+    isUnlimited: Boolean
+    time: String
+    brand: ID
+    parentBrand: ID
+    category: ID
+    categories: [ID!]
+    collections: [ID]
+    active: Boolean
+    popularity: Int
+    position: Int
+    sku: String
+    hsn: String
+    barcode: String
+    weight: Float
+    length: Float
+    width: Float
+    height: Float
+    group: String
+    colorCode: String
+    colorName: String
+    size: ID
+    link: String
+    condition: String
+    gtin: String
+    ageMin: Int
+    ageMax: Int
+    ageUnit: String
+    availability: String
+    gender: String
+    trending: Boolean
+    sale: Boolean
+    new: Boolean
+    hot: Boolean
+    featured: Boolean
+    recommended: Boolean
+    title: String
+    metaTitle: String
+    metaDescription: String
+    keywords: String
+    variants: [ID!]
+    itemId: String
+    warranty: String
+    styleCode: String
+    styleId: String
+    eanNo: String
+    articleCode: String
+    productMasterId: String
+    currency: String
+    manufacturer: String
+    returnInfo: String
+    countryOfOrigin: String
+    cgst: Float
+    sgst: Float
+    igst: Float
+    tax: Float
+    colorGroup: [String]
+    sizeGroup: [String]
+    relatedProducts: [ID!]
+    specifications: [ID!]
+    replaceAllowed: Boolean
+    returnAllowed: Boolean
+    returnValidityInDays: Int
+    replaceValidityInDays: Int
+    store: ID
+    files: [String]
+    sizechart: String
+    mfgDate: String
+    batchNo: String
+    expiryDate: String
+    unit: String
+    dimensionUnit: String
+    preOrder: Boolean
+    zips: [String]
+    shippingCost: Float
+    minOrderQty: Int
+    maxOrderQty: Int
+    isCod: Boolean
+    foodType: String
+    deliveryDetails: String
+    slots: [ID]
+    tags: [ID]
+    trackInventory: Boolean
+  ): OneProduct
+  importProduct(file: Upload!): String
+  updateAllProduct: Int
+  syncProductImages: Int
+  syncAutoComplete: Int
+  deletePromotion(id: ID!): Boolean
+  savePromotion(
+    id: String
+    name: String
+    active: Boolean
+    maxAmount: Int
+    maxUselimit: Int
+    oneUsePerCustomer: Boolean
+    description: String
+    featured: Boolean
+    img: String
+    platform: String
+    priority: Int
+    discount: DiscountIp
+    validFrom: String
+    validTo: String
+    store: ID
+  ): OnePromotion
+  removeReview(id: ID!): Boolean
+  saveReview(
+    id: String!
+    pid: ID
+    variant: ID
+    user: ID
+    store: ID
+    rating: Int
+    message: String
+    active: Boolean
+  ): OneReview
+  deleteRole(id: ID!): Boolean
+  saveRole(id: String!, name: String, roles: [String], active: Boolean): Role
+  assignRole(userId: ID!, roleIds: [ID!]!): User
+  saveScheduleDemo(
+    id: String!
+    title: String
+    img: String
+    product: ID
+    products: [ID]
+    scheduleDateTime: String
+    users: [ID]
+  ): ScheduleDemo
+  deleteScheduleDemo(id: ID!): Boolean
+  savePopularSearch(
+    id: String!
+    text: String
+    popularity: String
+    store: ID
+  ): OnePopularSearch
+  deletePopularSearch(id: ID!): Boolean
+  deleteAllPopularSearch: Int
+  saveSettings(
+    id: ID!
+    websiteName: String
+    title: String
+    liveCommerce: Boolean
+    multilingual: Boolean
+    alert: String
+    brainTreePublicKey: String
+    keywords: String
+    description: String
+    minimumOrderValue: Int
+    shipping: ShippingIp
+    tax: TaxIp
+    websiteEmail: String
+    shopPhone: String
+    shopAddress: String
+    websiteLegalName: String
+    currencyCode: String
+    currencySymbol: String
+    currencyDecimals: Int
+    openGraphImage: String
+    country: ID
+    currency: ID
+    lang: ID
+    logo: String
+    logoDark: String
+    logoMobile: String
+    logoMobileDark: String
+    favicon: String
+    CDN_URL: String
+    searchbarText: String
+    demo: Boolean
+    otpLogin: Boolean
+    pageSize: Int
+    enableZips: Boolean
+    closed: Boolean
+    closedMessage: String
+    zips: [String]
+    orderStatuses: [String]
+    paymentStatuses: [String]
+    sms: SmsIp
+    email: EmailIp
+    storage: StorageIp
+    review: ReviewSettingIp
+    product: ProductSettingIp
+    login: LoginSettingIp
+    googleMapsApi: String
+    RAZORPAY_KEY_ID: String
+    CASHFREE_KEY_ID: String
+    stripePublishableKey: String
+    enableStripe: Boolean
+    enableSubsription: Boolean
+    enableRazorpay: Boolean
+    facebook: String
+    twitter: String
+    google: String
+    instagram: String
+    linkedin: String
+    enableTax: Boolean
+    locationExpiry: Float
+    referralBonus: Float
+    joiningBonus: Float
+    customerOrderNotifications: UserNotificationIp
+    adminNotifications: AdminNotificationIp
+    isMultiStore: Boolean
+    isMultiVendor: Boolean
+    isMegamenu: Boolean
+    isVerifyEmail: Boolean
+    isSaas: Boolean
+    isSearch: Boolean
+    storageProvider: String
+    walletThreshold: Float
+  ): Setting
+  clearCache(name: String!): Boolean
+  commonShipments(orderItems: [ID!]!): [CommonShipment]
+  getShippingRates(
+    fromAddress: ID!
+    toAddress: ID!
+    length: Float!
+    width: Float!
+    height: Float!
+    distance_unit: String!
+    weight: Float!
+    mass_unit: String!
+  ): SippoShipment
+  buyShippingLabel(shippoRateId: String!): ShippoLabel
+  updateShippoData(orderItemId: ID): OrderItem
+  syncOrderItemWithShipping(orderItems: [ID]): Boolean
+  saveShippingMethod(
+    id: String!
+    carrierName: String
+    method: String
+    shippingNameAtCheckout: String
+    minWeight: Float
+    maxWeight: Float
+    amount: Float
+    tableBasedOn: String
+  ): ShippingMethod
+  removeShippingMethod(id: ID!): Boolean
+  removeSize(id: ID!): Boolean
+  saveSize(
+    id: String!
+    name: String
+    slug: String
+    info: String
+    img: String
+    store: ID
+    sort: Float
+    featured: Boolean
+    active: Boolean
+  ): OneSize
+  importSize(file: Upload!): String
+  removeSlot(id: ID!): Boolean
+  saveSlot(
+    id: String!
+    name: String
+    value: String
+    info: String
+    active: Boolean
+  ): OneSlot
+  saveState(
+    id: String
+    name: String
+    slug: String
+    value: String
+    img: String
+    flag: String
+    code: String
+    lang: String
+    states: String
+    sort: Int
+    active: Boolean
+    country: ID
+  ): OneState
+  deleteState(id: ID!): Boolean
+  saveStore(
+    id: String!
+    active: Boolean
+    featured: Boolean
+    adminNotifications: AdminNotificationIp
+    address: String
+    alert: String
+    analyticsTrackingId: String
+    banners: [String]
+    city: String
+    closed: Boolean
+    closedMessage: String
+    country: ID
+    currency: ID
+    currencyCode: String
+    currencyDecimals: Float
+    currencySymbol: String
+    customerOrderNotifications: UserNotificationIp
+    description: String
+    metaDescription: String
+    dimentionUnit: String
+    domain: String
+    email: String
+    facebook: String
+    facebookPixelId: String
+    facebookUrl: String
+    favicon: String
+    firstName: String
+    freeShippingOn: Float
+    gdpr: Boolean
+    gdprCookieConsent: String
+    google: String
+    googleAdsTag: String
+    homeMeta1: String
+    homeMeta2: String
+    homeMeta3: String
+    homeMeta4: String
+    img: String
+    images: [String]
+    bankAccountNo: String
+    bankAccountHolderName: String
+    bankIfscCode: String
+    bankSwiftCode: String
+    instagram: String
+    instagramUrl: String
+    isHideNilStock: Boolean
+    isMegamenu: Boolean
+    isOpen: Boolean
+    isSearch: Boolean
+    isHyperlocal: Boolean
+    isFnb: Boolean
+    isWishlist: Boolean
+    isCart: Boolean
+    keywords: String
+    lastName: String
+    lat: Float
+    legalName: String
+    linkedin: String
+    lng: Float
+    locality: String
+    logo: String
+    logoDark: String
+    logoMobile: String
+    logoMobileDark: String
+    minimumOrderValue: Float
+    minOrderValue: Float
+    name: String
+    openGraphImage: String
+    pageSize: Int
+    phone: String
+    pinterestTag: String
+    pinterestUrl: String
+    qrCode: String
+    review: ReviewSettingIp
+    searchbarText: String
+    shipping: ShippingIp
+    shippingCharge: Float
+    shopAddress: String
+    shopPhone: String
+    slug: String
+    refreshSlug: Boolean
+    snapChatPixel: String
+    state: String
+    storeId: String
+    timeZone: String
+    timing: String
+    title: String
+    twitter: String
+    twitterUrl: String
+    websiteEmail: String
+    websiteLegalName: String
+    websiteName: String
+    weightUnit: String
+    youtubeUrl: String
+    webmail: String
+    zip: String
+    timeDisplayFormat: String
+    priceDisplayFormat: String
+    currencySuffix: String
+    hideDecimalInCurrency: Boolean
+    sms: SmsIp
+    vendorNotifications: VendorNotificationIp
+    shippoToken: String
+    shipRocketEmail: String
+    shipRocketPassword: String
+    shipRocketChannelId: String
+    pickrrAuthToken: String
+  ): OneStore
+  deleteStore(id: ID!): Boolean
+  populateDemoDataInStore(storeId: ID): Boolean
+  removeDemoDataInStore(storeId: ID): Boolean
+  importStore(file: Upload!): String
+  updateCurrencies: Boolean
+  updateStoreTiming(
+    id: ID!
+    day: String
+    fromTime: String
+    index: Int
+    isOpen: Boolean
+    online: Boolean
+    toTime: String
+  ): Store
+  updateALLStoreData(type: String): Boolean
+  createMigrationInStore(storeId: ID): Boolean
+  removeStoreCountry(id: ID!): Boolean
+  saveStoreCountry(
+    id: String!
+    country: ID
+    default: Boolean
+    active: Boolean
+  ): OneStoreCountry
+  removeStoreCurrency(id: ID!): Boolean
+  saveStoreCurrency(
+    id: String!
+    currency: ID
+    default: Boolean
+    active: Boolean
+    conversionMode: String
+    conversionRate: Float
+  ): OneStoreCurrency
+  removeStoreLanguage(id: ID!): Boolean
+  saveStoreLanguage(
+    id: String!
+    lang: ID
+    default: Boolean
+    active: Boolean
+  ): OneStoreLanguage
+  createSubsciption(
+    subscription: ID!
+    intervalType: String!
+    user: ID!
+  ): Subscribe
+  stripeSubscription(
+    subscription: ID!
+    intervalType: String
+    paymentMethodId: String
+  ): Subscribe
+  confirmStripeSubscription(
+    subscribeId: ID
+    paymentReferenceId: String
+  ): Subscribe
+  cashfreeSubscription(subscription: ID!, intervalType: String): Subscribe
+  testAutoRenewSubscribe: Boolean
+  buyFreeSubscription: Subscribe
+  deleteSubscription(id: ID!): Boolean
+  saveSubscription(
+    id: String!
+    abandonnedCartRecovery: Boolean
+    active: Boolean
+    annualMonthlyPrice: Float
+    chatSupport: Boolean
+    customDomain: Boolean
+    description: String
+    discountCoupons: Boolean
+    emailSupport: Boolean
+    freeSSL: Boolean
+    misReports: Boolean
+    monthlyPrice: Float
+    name: String
+    onlineStore: Boolean
+    premiumSupport: Boolean
+    productImportExport: Boolean
+    productsAllowed: Int
+    removeMisikiLogo: Boolean
+    salesChannels: Boolean
+    seoOptions: Boolean
+    title: String
+    transactionFees: Float
+    transactionFeesType: String
+    unlimitedProducts: Boolean
+    unlimitedValidity: Boolean
+    maxAdminAllowed: Int
+    cashfreePlanId: String
+    stripePlanId: String
+  ): OneSubscription
+  removeUnit(id: ID!): Boolean
+  saveUnit(
+    id: String!
+    name: String
+    slug: String
+    info: String
+    img: String
+    featured: Boolean
+    active: Boolean
+  ): OneUnit
+  removeUser(id: ID!): Boolean
+  getOtp(phone: String!, role: String, store: ID): Otp
+  verifyOtp(phone: String!, otp: String!): User
+  sendInvitation(emails: String): Boolean
+  resendEmail(email: String): String
+  verifyEmail(
+    id: ID!
+    token: String!
+    expires: String!
+    signature: String!
+    store: ID
+  ): Boolean
+  emailPassword(email: String!, referrer: String!): String
+  resetPassword(
+    id: ID!
+    token: String
+    password: String
+    passwordConfirmation: String
+  ): Boolean
+  changePassword(
+    oldPassword: String!
+    password: String!
+    passwordConfirmation: String!
+  ): Boolean
+  saveUser(
+    id: String!
+    firstName: String
+    lastName: String
+    email: String
+    avatar: String
+    banner: String
+    gender: String
+    city: String
+    state: String
+    phone: String
+    zip: Int
+    role: String
+    roles: [ID]
+    shippingCharges: Int
+    freeShippingOn: Int
+    storeName: String
+    storeCommissionType: String
+    storeCommissionValue: Float
+    verified: Boolean
+    active: Boolean
+  ): User
+  register(
+    firstName: String
+    lastName: String
+    email: String!
+    phone: String
+    password: String!
+    passwordConfirmation: String!
+    referralCode: String
+    role: String
+    store: ID
+  ): User
+  updateProfile(
+    firstName: String
+    lastName: String
+    email: String
+    role: String
+    gender: String
+    info: InputInfo
+    phone: String
+    dob: String
+    avatar: String
+    provider: String
+    active: Boolean
+    address: AddressInput
+    meta: String
+    metaTitle: String
+    metaDescription: String
+    metaKeywords: String
+    shippingCharges: Int
+    freeShippingOn: Int
+    storeName: String
+    banner: String
+  ): UserOne
+  login(email: String!, password: String!): User
+  signOut: Boolean
+  googleOneTap(credential: String!, role: String, store: ID): User
+  attachUserToStore(storeId: ID!, userId: ID!): User
+  removeUserFromStore(userId: ID!): User
+  importUser(file: Upload!): String
+  facebookMobileLogin(accessToken: String!): User
+  signInWithApple(code: String!): User
+  saveMyVendor(
+    bankAccountNo: Float
+    bankName: String
+    bankIfsc: String
+    bankAccountHolderName: String
+    bankSwiftCode: String
+    commissionType: String
+    commissionValue: Float
+    description: String
+    banner: String
+    address: ID
+    businessName: String
+    freeShippingOn: Float
+    info: InputInfo
+    meta: String
+    metaDescription: String
+    metaKeywords: String
+    metaTitle: String
+    shippingCharges: Float
+    facebookUrl: String
+    githubUrl: String
+    googleUrl: String
+    twitterUrl: String
+    about: String
+    banners: [String]
+    categories: [ID]
+  ): Vendor
+  saveVendor(
+    id: String
+    bankAccountNo: Float
+    bankName: String
+    bankIfsc: String
+    bankAccountHolderName: String
+    bankSwiftCode: String
+    commissionType: String
+    commissionValue: Float
+    description: String
+    banner: String
+    address: ID
+    businessName: String
+    freeShippingOn: Float
+    info: InputInfo
+    meta: String
+    metaDescription: String
+    metaKeywords: String
+    metaTitle: String
+    shippingCharges: Float
+    facebookUrl: String
+    githubUrl: String
+    googleUrl: String
+    twitterUrl: String
+    verified: Boolean
+    categories: [ID]
+  ): OneVendor
+  removeVendor(id: ID!): Boolean
+  vendorVerification(
+    id: ID!
+    country: ID
+    store: ID
+    zips: [String]
+    zip: String
+    verified: Boolean
+  ): Vendor
+  updateAllVendor(password: String!, force: Boolean): Int
+  deleteVideo(id: ID!): Boolean
+  deleteVideos(ids: [ID!]): Int
+  saveVideo(
+    id: String!
+    videoId: String
+    url: String
+    name: String
+    description: String
+    comment: String
+    category: String
+    board: ID
+    level: ID
+    class: ID
+    subject: ID
+    lang: String
+    difficulty: String
+    chapter: String
+    type: String
+    img: String
+    slug: String
+    sort: Int
+    featured: Boolean
+    user: ID
+    active: Boolean
+    status: String
+    meta: String
+    metaTitle: String
+    metaDescription: String
+    metaKeywords: String
+    vid: String
+    taskId: String
+  ): Video
+  updateVisitorCount(store: ID!): Int
+  toggleWishlist(product: ID!, variant: ID!): Boolean
+  deleteReferral(id: ID!): OneReferral
+  saveReferral(
+    id: String!
+    storeCreated: Boolean
+    subscriptionBought: Boolean
+    subscribe: ID
+    referredFrom: ID
+    referredTo: ID
+  ): OneReferral
+  addMoney(amount: Float!): OneWallet
+  withdrawalAmount(amount: Float!): OneWithdrawal
+  updateWithdrawal(id: ID!, status: String, remark: String): OneWithdrawal
+  deleteTag(id: ID!): OneTag
+  saveTag(
+    id: String!
+    name: String
+    slug: String
+    colorCode: String
+    active: Boolean
+  ): OneTag
+}
+
+type Subscription {
+  _: String
+  messageReceived(channel: String!): InstantMessage
+  chats(
+    channel: String!
+    page: Int
+    search: String
+    limit: Int
+    sort: String
+  ): InstantMessageRes
+  orderUpdated(id: ID!): Order
+  settingsUpdated: Setting
+}
+
+type ScheduleDemo {
+  id: ID!
+  title: String
+  img: String
+  imgCdn: String
+  product: Product
+  products: [Product]
+  scheduleDateTime: Float!
+  user: User!
+  users: [User]
+}
+
+type ScheduleDemoOne {
+  id: ID!
+  title: String
+  img: String
+  imgCdn: String
+  product: ID
+  products: [ID]
+  scheduleDateTime: Float!
+  user: ID!
+  users: [ID]
+}
+
+type ScheduleDemoRes {
+  data: [ScheduleDemo]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type PopularSearch {
+  id: ID!
+  text: String
+  popularity: String
+  store: Store
+}
+
+type OnePopularSearch {
+  id: ID!
+  text: String
+  popularity: String
+  store: ID
+}
+
+type PopularSearchRes {
+  data: [PopularSearch]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type OrderStatus {
+  status: String
+  title: String
+  body: String
+  icon: String
+  public: Boolean
+  index: Int
+}
+
+input ProductSettingIp {
+  moderate: Boolean
+}
+
+input LoginSettingIp {
+  FACEBOOK_ID: String
+  FACEBOOK_SECRET: String
+  TWITTER_ID: String
+  TWITTER_SECRET: String
+  GOOGLE_ID: String
+  GOOGLE_SECRET: String
+  GITHUB_ID: String
+  GITHUB_SECRET: String
+}
+
+type LoginSetting {
+  FACEBOOK_ID: String
+  FACEBOOK_SECRET: String
+  TWITTER_ID: String
+  TWITTER_SECRET: String
+  GOOGLE_ID: String
+  GOOGLE_SECRET: String
+  GITHUB_ID: String
+  GITHUB_SECRET: String
+}
+
+type ProductSetting {
+  moderate: Boolean
+}
+
+input ReviewSettingIp {
+  enabled: Boolean
+  moderate: Boolean
+}
+
+type ReviewSetting {
+  enabled: Boolean
+  moderate: Boolean
+}
+
+input ShippingIp {
+  deliveryDays: Int
+  charge: Int
+  free: Int
+  method: String
+  enabled: Boolean
+  provider: String
+}
+
+type Shipping {
+  deliveryDays: Int
+  charge: Int
+  free: Int
+  method: String
+  enabled: Boolean
+  provider: String
+}
+
+type Shutter {
+  open: Boolean
+  message: String
+}
+
+input TaxIp {
+  cgst: Float
+  sgst: Float
+  igst: Float
+}
+
+type Tax {
+  cgst: Float
+  sgst: Float
+  igst: Float
+}
+
+type Email {
+  enabled: Boolean
+  from: String
+  to: [String]
+  cc: [String]
+  bcc: [String]
+  printers: [String]
+}
+
+input EmailIp {
+  enabled: Boolean
+  from: String
+  to: [String]
+  cc: [String]
+  bcc: [String]
+  printers: [String]
+}
+
+type NameValImg {
+  name: String
+  val: String
+  img: String
+}
+
+type NameVal {
+  name: String
+  val: String
+}
+
+type NameValue {
+  name: String
+  value: String
+}
+
+input NameValIp {
+  name: String
+  val: String
+}
+
+type Sms {
+  AUTO_VERIFICATION_ID: String
+  enabled: Boolean
+  provider: String
+}
+
+input SmsIp {
+  provider: String
+  FAST2SMS_API_KEY: String
+  TWILIO_API_KEY: String
+  Fast2SMS_OTP_TEMPLATE_ID: Int
+  AUTO_VERIFICATION_ID: String
+  enabled: Boolean
+}
+
+input UserNotificationIp {
+  orderConfirmation: Boolean
+  orderStatusChanged: Boolean
+  orderShipped: Boolean
+  orderIsReadyForPickup: Boolean
+  downloadEGoods: Boolean
+  giftCardPurchased: Boolean
+  orderConfirmationSms: Boolean
+}
+
+input AdminNotificationIp {
+  newOrderPlaced: Boolean
+  lowStockNotification: Boolean
+}
+
+input VendorNotificationIp {
+  orderConfirmationSms: Boolean
+}
+
+type VendorNotification {
+  orderConfirmationSms: Boolean
+}
+
+type UserNotification {
+  orderConfirmation: Boolean
+  orderStatusChanged: Boolean
+  orderShipped: Boolean
+  orderIsReadyForPickup: Boolean
+  downloadEGoods: Boolean
+  giftCardPurchased: Boolean
+  orderConfirmationSms: Boolean
+}
+
+type AdminNotification {
+  newOrderPlaced: Boolean
+  lowStockNotification: Boolean
+}
+
+input StorageIp {
+  provider: String
+  enabled: Boolean
+}
+
+type Storage {
+  provider: String
+  enabled: Boolean
+}
+
+type Setting {
+  id: String
+  websiteName: String
+  shutter: Shutter
+  title: String
+  liveCommerce: Boolean
+  multilingual: Boolean
+  alert: String
+  keywords: String
+  description: String
+  minimumOrderValue: Int
+  shipping: Shipping
+  currencyCode: String
+  openGraphImage: String
+  currencySymbol: String
+  currencyDecimals: Int
+  userRoles: [String]
+  sorts: [NameVal]
+  RAZORPAY_KEY_ID: String
+  CASHFREE_KEY_ID: String
+  GOOGLE_CLIENT_ID: String
+  tax: Tax
+  websiteEmail: String
+  shopPhone: String
+  shopAddress: String
+  websiteLegalName: String
+  country: ID
+  countryDetails: Country
+  currency: ID
+  currencyDetails: Currency
+  lang: ID
+  langDetails: Language
+  logo: String
+  logoDark: String
+  logoMobile: String
+  logoMobileDark: String
+  favicon: String
+  CDN_URL: String
+  S3_URL: String
+  searchbarText: String
+  ADMIN_PANEL_LINK: String
+  DOCS_LINK: String
+  LIVE_COMMERCE_URL: String
+  demo: Boolean
+  otpLogin: Boolean
+  pageSize: Int
+  enableZips: Boolean
+  closed: Boolean
+  closedMessage: String
+  zips: [String]
+  returnReasons: [String]
+  orderStatuses: [OrderStatus]
+  paymentStatuses: [String]
+  paymentMethods: [PaymentMethod]
+  sms: Sms
+  email: Email
+  storage: Storage
+  storageProvider: String
+  review: ReviewSetting
+  product: ProductSetting
+  login: LoginSetting
+  googleMapsApi: String
+  stripePublishableKey: String
+  enableStripe: Boolean
+  enableSubsription: Boolean
+  enableRazorpay: Boolean
+  facebook: String
+  twitter: String
+  google: String
+  instagram: String
+  linkedin: String
+  enableTax: Boolean
+  locationExpiry: Float
+  WWW_URL: String
+  customerOrderNotifications: UserNotification
+  adminNotifications: AdminNotification
+  referralBonus: Float
+  joiningBonus: Float
+  isMultiStore: Boolean
+  isMultiVendor: Boolean
+  isMegamenu: Boolean
+  isVerifyEmail: Boolean
+  isSaas: Boolean
+  isSearch: Boolean
+  brainTreePublicKey: String
+  foodTypes: [NameValImg]
+  shippingProviders: [String]
+  IS_IMAGE_UPLOAD_REST: Boolean
+  walletThreshold: Float
+}
+
+type CommonShipment {
+  vendorAddress: Address
+  customerAddress: Address
+  length: Float
+  width: Float
+  height: Float
+  distance_unit: String
+  weight: Float
+  mass_unit: String
+  items: [OrderItem]
+}
+
+type SippoShipment {
+  rates: [SippoShipmentRates]
+  messages: [shippoMessage]
+}
+
+type SippoShipmentRates {
+  object_id: String
+  object_created: String
+  shipment: String
+  attributes: [String]
+  amount: Float
+  currency: String
+  amount_local: Float
+  currency_local: String
+  provider: String
+  provider_image_75: String
+  provider_image_200: String
+  estimated_days: Int
+  arrives_by: String
+  duration_terms: String
+  carrier_account: String
+  test: Boolean
+  zone: String
+  servicelevel: shippoServiceLevel
+  messages: [shippoMessage]
+}
+
+type shippoServiceLevel {
+  name: String
+  token: String
+  terms: String
+  extended_token: String
+  parent_servicelevel: String
+}
+
+type ShippoLabel {
+  object_state: String
+  status: String
+  object_id: String
+  object_created: String
+  object_updated: String
+  rate: String
+  tracking_number: String
+  tracking_status: String
+  eta: String
+  tracking_url_provider: String
+  label_url: String
+  commercial_invoice_url: String
+  order: String
+  metadata: String
+  parcel: String
+  qr_code_url: String
+  messages: [shippoMessage]
+  test: Boolean
+}
+
+type shippoLabelRes {
+  data: [ShippoLabel]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type shippoMessage {
+  source: String
+  code: String
+  text: String
+}
+
+type ShippingMethod {
+  id: ID!
+  carrierName: String
+  method: String
+  shippingNameAtCheckout: String
+  minWeight: Float
+  maxWeight: Float
+  amount: Float
+  tableBasedOn: String
+  user: ID
+}
+
+type ShippingMethodRes {
+  data: [ShippingMethod]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type Size {
+  id: ID!
+  name: String
+  slug: String
+  info: String
+  img: String
+  imgCdn: String
+  store: Store
+  sort: Float
+  featured: Boolean
+  active: Boolean!
+  createdAt: String!
+  updatedAt: String!
+}
+
+type OneSize {
+  id: ID!
+  name: String
+  slug: String
+  info: String
+  img: String
+  imgCdn: String
+  store: ID
+  sort: Float
+  featured: Boolean
+  active: Boolean!
+  createdAt: String!
+  updatedAt: String!
+}
+
+type sizeRes {
+  data: [Size]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type Slot {
+  id: ID
+  name: String
+  value: String
+  info: String
+  user: User
+  store: Store
+  active: Boolean
+  createdAt: String
+  updatedAt: String
+}
+
+type OneSlot {
+  id: ID
+  name: String
+  value: String
+  info: String
+  user: ID
+  store: ID
+  active: Boolean
+  createdAt: String
+  updatedAt: String
+}
+
+type SlotRes {
+  data: [Slot]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type State {
+  id: ID!
+  name: String!
+  slug: String
+  value: String
+  img: String
+  imgCdn: String
+  flag: String
+  code: String
+  lang: String
+  states: String
+  sort: Int
+  active: Boolean
+  country: Country
+  createdAt: String!
+  updatedAt: String!
+}
+
+type OneState {
+  id: ID!
+  name: String!
+  slug: String
+  value: String
+  img: String
+  imgCdn: String
+  flag: String
+  code: String
+  lang: String
+  states: String
+  sort: Int
+  active: Boolean
+  country: ID
+  createdAt: String!
+  updatedAt: String!
+}
+
+type stateRes {
+  data: [State]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type Store {
+  id: ID!
+  active: Boolean
+  featured: Boolean
+  adminNotifications: AdminNotification
+  address: String
+  alert: String
+  analyticsTrackingId: String
+  banners: [String]
+  city: String
+  closed: Boolean
+  closedMessage: String
+  country: Country
+  currency: Currency
+  currencyCode: String
+  currencyDecimals: Float
+  currencySymbol: String
+  customerOrderNotifications: UserNotification
+  description: String
+  metaDescription: String
+  dimentionUnit: String
+  domain: String
+  email: String
+  facebook: String
+  facebookPixelId: String
+  facebookUrl: String
+  favicon: String
+  faviconCdn: String
+  firstName: String
+  freeShippingOn: Float
+  gdpr: Boolean
+  gdprCookieConsent: String
+  google: String
+  googleAdsTag: String
+  homeMeta1: String
+  homeMeta2: String
+  homeMeta3: String
+  homeMeta4: String
+  img: String
+  imgCdn: String
+  images: [String]
+  imagesCdn: [String]
+  bankAccountNo: String
+  bankAccountHolderName: String
+  bankIfscCode: String
+  bankSwiftCode: String
+  instagram: String
+  instagramUrl: String
+  isHideNilStock: Boolean
+  isMegamenu: Boolean
+  isOpen: Boolean
+  isSearch: Boolean
+  isHyperlocal: Boolean
+  isFnb: Boolean
+  isWishlist: Boolean
+  isCart: Boolean
+  keywords: String
+  lastName: String
+  lat: Float
+  legalName: String
+  linkedin: String
+  lng: Float
+  locality: String
+  logo: String
+  logoCdn: String
+  logoDark: String
+  logoDarkCdn: String
+  logoMobile: String
+  logoMobileCdn: String
+  logoMobileDark: String
+  logoMobileDarkCdn: String
+  minimumOrderValue: Float
+  minOrderValue: Float
+  name: String
+  openGraphImage: String
+  openGraphImageCdn: String
+  pageSize: Int
+  phone: String
+  pinterestTag: String
+  pinterestUrl: String
+  qrCode: String
+  review: ReviewSetting
+  searchbarText: String
+  shipping: Shipping
+  shippingCharge: Float
+  shopAddress: String
+  shopPhone: String
+  slug: String
+  snapChatPixel: String
+  state: String
+  storeId: String
+  timeZone: String
+  timing: String
+  title: String
+  twitter: String
+  twitterUrl: String
+  user: User
+  websiteEmail: String
+  websiteLegalName: String
+  websiteName: String
+  weightUnit: String
+  youtubeUrl: String
+  webmail: String
+  zip: String
+  timeDisplayFormat: String
+  priceDisplayFormat: String
+  createdAt: String
+  updatedAt: String
+  storeTiming: [StoreTiming]
+  currencySuffix: String
+  hideDecimalInCurrency: Boolean
+  sms: Sms
+  vendorNotifications: VendorNotification
+  shippoToken: String
+  shipRocketEmail: String
+  shipRocketPassword: String
+  shipRocketChannelId: String
+  pickrrAuthToken: String
+  storeCountry: StoreCountry
+  storeCurrency: StoreCurrency
+  storeLanguage: StoreLanguage
+}
+
+type OneStore {
+  id: ID!
+  active: Boolean
+  featured: Boolean
+  adminNotifications: AdminNotification
+  address: String
+  alert: String
+  analyticsTrackingId: String
+  banners: [String]
+  city: String
+  closed: Boolean
+  closedMessage: String
+  country: ID
+  countryDetails: Country
+  currency: ID
+  currencyDetails: Currency
+  currencyCode: String
+  currencyDecimals: Float
+  currencySymbol: String
+  customerOrderNotifications: UserNotification
+  description: String
+  metaDescription: String
+  dimentionUnit: String
+  domain: String
+  email: String
+  facebook: String
+  facebookPixelId: String
+  facebookUrl: String
+  favicon: String
+  faviconCdn: String
+  firstName: String
+  freeShippingOn: Float
+  gdpr: Boolean
+  gdprCookieConsent: String
+  google: String
+  googleAdsTag: String
+  homeMeta1: String
+  homeMeta2: String
+  homeMeta3: String
+  homeMeta4: String
+  img: String
+  imgCdn: String
+  images: [String]
+  imagesCdn: [String]
+  bankAccountNo: String
+  bankAccountHolderName: String
+  bankIfscCode: String
+  bankSwiftCode: String
+  instagram: String
+  instagramUrl: String
+  isHideNilStock: Boolean
+  isMegamenu: Boolean
+  isOpen: Boolean
+  isSearch: Boolean
+  isHyperlocal: Boolean
+  isFnb: Boolean
+  isWishlist: Boolean
+  isCart: Boolean
+  keywords: String
+  lastName: String
+  lat: Float
+  legalName: String
+  linkedin: String
+  lng: Float
+  locality: String
+  logo: String
+  logoCdn: String
+  logoDark: String
+  logoDarkCdn: String
+  logoMobile: String
+  logoMobileCdn: String
+  logoMobileDark: String
+  logoMobileDarkCdn: String
+  minimumOrderValue: Float
+  minOrderValue: Float
+  name: String
+  openGraphImage: String
+  openGraphImageCdn: String
+  pageSize: Int
+  phone: String
+  pinterestTag: String
+  pinterestUrl: String
+  qrCode: String
+  review: ReviewSetting
+  searchbarText: String
+  shipping: Shipping
+  shippingCharge: Float
+  shopAddress: String
+  shopPhone: String
+  slug: String
+  snapChatPixel: String
+  state: String
+  storeId: String
+  timeZone: String
+  timing: String
+  title: String
+  twitter: String
+  twitterUrl: String
+  user: ID
+  websiteEmail: String
+  websiteLegalName: String
+  websiteName: String
+  weightUnit: String
+  youtubeUrl: String
+  webmail: String
+  zip: String
+  timeDisplayFormat: String
+  priceDisplayFormat: String
+  createdAt: String
+  updatedAt: String
+  storeTiming: [StoreTiming]
+  currencySuffix: String
+  hideDecimalInCurrency: Boolean
+  sms: Sms
+  vendorNotifications: VendorNotification
+  shippoToken: String
+  shipRocketEmail: String
+  shipRocketPassword: String
+  shipRocketChannelId: String
+  pickrrAuthToken: String
+  storeCountry: ID
+  storeCurrency: ID
+  storeLanguage: ID
+}
+
+type storeRes {
+  data: [Store]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type StoreTiming {
+  day: String
+  fromTime: String
+  index: Int
+  isOpen: Boolean
+  online: Boolean
+  toTime: String
+}
+
+type StoreCountry {
+  id: ID
+  active: Boolean
+  default: Boolean
+  code: String
+  name: String
+  country: Country
+  user: User
+  store: Store
+  createdAt: String
+  updatedAt: String
+}
+
+type OneStoreCountry {
+  id: ID
+  active: Boolean
+  default: Boolean
+  code: String
+  name: String
+  country: ID
+  user: ID
+  store: ID
+  createdAt: String
+  updatedAt: String
+}
+
+type StoreCountryRes {
+  data: [StoreCountry]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type StoreCurrency {
+  id: ID
+  active: Boolean
+  default: Boolean
+  conversionMode: String
+  conversionRate: Float
+  isoCode: String
+  name: String
+  symbol: String
+  currency: Currency
+  user: User
+  store: Store
+  createdAt: String
+  updatedAt: String
+}
+
+type OneStoreCurrency {
+  id: ID
+  active: Boolean
+  default: Boolean
+  conversionMode: String
+  conversionRate: Float
+  isoCode: String
+  name: String
+  symbol: String
+  currency: ID
+  user: ID
+  store: ID
+  createdAt: String
+  updatedAt: String
+}
+
+type StoreCurrencyRes {
+  data: [StoreCurrency]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type StoreLanguage {
+  id: ID
+  active: Boolean
+  default: Boolean
+  name: String
+  code: String
+  lang: Language
+  user: User
+  store: Store
+  createdAt: String
+  updatedAt: String
+}
+
+type OneStoreLanguage {
+  id: ID
+  active: Boolean
+  default: Boolean
+  name: String
+  code: String
+  lang: ID
+  user: ID
+  store: ID
+  createdAt: String
+  updatedAt: String
+}
+
+type StoreLanguageRes {
+  data: [StoreLanguage]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type Subscribe {
+  id: ID!
+  amount: Float
+  amountDue: Float
+  amountPaid: Float
+  daysLeft: Int
+  EndTime: String
+  EndTimeISO: String
+  img: String
+  onGoing: Boolean
+  paid: Boolean
+  paymentReferenceId: String
+  authLink: String
+  clientSecret: String
+  payment: Payment
+  StartTime: String
+  StartTimeISO: String
+  subscription: SaasSubscription
+  user: User
+  createdAt: String
+  updatedAt: String
+}
+
+type OneSubscribe {
+  id: ID!
+  amount: Float
+  amountDue: Float
+  amountPaid: Float
+  daysLeft: Int
+  EndTime: String
+  EndTimeISO: String
+  img: String
+  onGoing: Boolean
+  paid: Boolean
+  paymentReferenceId: String
+  authLink: String
+  clientSecret: String
+  payment: ID
+  StartTime: String
+  StartTimeISO: String
+  subscription: ID
+  user: ID
+  createdAt: String
+  updatedAt: String
+}
+
+type subscribeRes {
+  data: [Subscribe]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type SaasSubscription {
+  id: ID
+  abandonnedCartRecovery: Boolean
+  active: Boolean
+  annualMonthlyPrice: Float
+  chatSupport: Boolean
+  customDomain: Boolean
+  description: String
+  discountCoupons: Boolean
+  emailSupport: Boolean
+  freeSSL: Boolean
+  misReports: Boolean
+  monthlyPrice: Float
+  name: String
+  onlineStore: Boolean
+  premiumSupport: Boolean
+  productImportExport: Boolean
+  productsAllowed: Int
+  removeMisikiLogo: Boolean
+  salesChannels: Boolean
+  seoOptions: Boolean
+  title: String
+  transactionFees: Float
+  transactionFeesType: String
+  unlimitedProducts: Boolean
+  unlimitedValidity: Boolean
+  maxAdminAllowed: Int
+  cashfreePlanId: String
+  stripePlanId: String
+  createdAt: String
+  updatedAt: String
+  features: [String]
+}
+
+type OneSubscription {
+  id: ID
+  abandonnedCartRecovery: Boolean
+  active: Boolean
+  annualMonthlyPrice: Float
+  chatSupport: Boolean
+  customDomain: Boolean
+  description: String
+  discountCoupons: Boolean
+  emailSupport: Boolean
+  freeSSL: Boolean
+  misReports: Boolean
+  monthlyPrice: Float
+  name: String
+  onlineStore: Boolean
+  premiumSupport: Boolean
+  productImportExport: Boolean
+  productsAllowed: Int
+  removeMisikiLogo: Boolean
+  salesChannels: Boolean
+  seoOptions: Boolean
+  title: String
+  transactionFees: Float
+  transactionFeesType: String
+  unlimitedProducts: Boolean
+  unlimitedValidity: Boolean
+  maxAdminAllowed: Int
+  cashfreePlanId: String
+  stripePlanId: String
+  createdAt: String
+  updatedAt: String
+  features: [String]
+}
+
+type subscriptionRes {
+  data: [SaasSubscription]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type Unit {
+  id: ID!
+  name: String
+  slug: String
+  info: String
+  img: String
+  featured: Boolean
+  active: Boolean!
+  createdAt: String!
+  updatedAt: String!
+}
+
+type OneUnit {
+  id: ID!
+  name: String
+  slug: String
+  info: String
+  img: String
+  featured: Boolean
+  active: Boolean!
+  createdAt: String!
+  updatedAt: String!
+}
+
+type unitRes {
+  data: [Unit]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+# The `Upload` scalar type represents a file upload.
+scalar Upload
+
+input AddressInput {
+  id: ID
+  email: String
+  firstName: String
+  lastName: String
+  address: String
+  town: String
+  city: String
+  country: String
+  district: String
+  state: String
+  lat: Float
+  lng: Float
+  zip: Int
+  phone: String
+  active: Boolean
+}
+
+input InputInfo {
+  public: Boolean
+  store: String
+  storePhotos: [String]
+}
+
+type Info {
+  public: Boolean
+  store: String
+  storePhotos: [String]
+}
+
+type Otp {
+  otp: String
+  timer: Int
+}
+
+type userRes {
+  data: [User]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type User {
+  id: ID
+  _id: ID
+  appleId: String
+  firstName: String
+  lastName: String
+  fullName: String
+  name: String
+  phone: String
+  email: String
+  role: String
+  slug: String
+  gender: String
+  info: Info
+  avatar: String
+  avatarCdn: String
+  provider: String
+  active: Boolean
+  phoneVerified: Boolean
+  verified: Boolean
+  verifiedAt: String
+  address: [Address]
+  ratings: Float
+  reviews: Float
+  roles: [ID]
+  city: String
+  store: Store
+  productSold: Int
+  meta: String
+  metaTitle: String
+  metaDescription: String
+  metaKeywords: String
+  createdAt: String
+  updatedAt: String
+  plan: String
+  shippingCharges: Int
+  freeShippingOn: Int
+  sid: String
+  luluCustomerNo: String
+  referralCode: String
+  currentBalance: Float
+  storeName: String
+  banner: String
+  storeCommissionType: String
+  storeCommissionValue: Float
+  vendor: ID
+}
+
+type UserOne {
+  id: ID
+  _id: ID
+  appleId: String
+  firstName: String
+  lastName: String
+  fullName: String
+  phone: String
+  email: String
+  role: String
+  slug: String
+  gender: String
+  info: Info
+  avatar: String
+  avatarCdn: String
+  provider: String
+  active: Boolean
+  phoneVerified: Boolean
+  verified: Boolean
+  verifiedAt: String
+  address: [Address]
+  ratings: Float
+  reviews: Float
+  roles: [Role]
+  city: String
+  store: ID
+  productSold: Int
+  meta: String
+  metaTitle: String
+  metaDescription: String
+  metaKeywords: String
+  createdAt: String!
+  updatedAt: String!
+  plan: String
+  shippingCharges: Int
+  freeShippingOn: Int
+  sid: String
+  luluCustomerNo: String
+  referralCode: String
+  currentBalance: Float
+  storeName: String
+  banner: String
+  storeCommissionType: String
+  storeCommissionValue: Float
+  recentlyViewed: [ID]
+  vendor: ID
+}
+
+type vendorRes {
+  data: [Vendor]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type Vendor {
+  id: ID
+  bankAccountHolderName: String
+  bankAccountNo: Float
+  bankName: String
+  bankIfsc: String
+  bankSwiftCode: String
+  address: Address
+  banner: String
+  bannerCdn: String
+  banners: [String]
+  bannersCdn: [String]
+  about: String
+  businessName: String
+  commissionType: String
+  commissionValue: Float
+  description: String
+  store: Store
+  user: User
+  country: Country
+  zips: [String]
+  slug: String
+  freeShippingOn: Float
+  info: Info
+  meta: String
+  metaDescription: String
+  metaKeywords: String
+  metaTitle: String
+  productSold: Int
+  ratings: Float
+  reviews: Int
+  shippingCharges: Float
+  storeName: String
+  facebookUrl: String
+  githubUrl: String
+  googleUrl: String
+  twitterUrl: String
+  verified: Boolean
+  categories: [Category]
+  products: SearchRes
+  createdAt: String
+  updatedAt: String
+}
+
+type OneVendor {
+  id: ID
+  bankAccountNo: Float
+  bankName: String
+  bankIfsc: String
+  bankAccountHolderName: String
+  bankSwiftCode: String
+  banner: String
+  bannerCdn: String
+  banners: [String]
+  bannersCdn: [String]
+  about: String
+  businessName: String
+  commissionType: String
+  commissionValue: Float
+  description: String
+  address: ID
+  store: ID
+  user: ID
+  country: ID
+  zips: [String]
+  slug: String
+  freeShippingOn: Float
+  info: Info
+  meta: String
+  metaDescription: String
+  metaKeywords: String
+  metaTitle: String
+  productSold: Int
+  ratings: Float
+  reviews: Int
+  shippingCharges: Float
+  storeName: String
+  facebookUrl: String
+  githubUrl: String
+  googleUrl: String
+  twitterUrl: String
+  verified: Boolean
+  categories: [ID]
+  createdAt: String
+  updatedAt: String
+}
+
+type Video {
+  id: ID!
+  comment: String
+  category: String
+  img: String
+  sort: Int
+  featured: Boolean
+  user: User
+  active: Boolean
+  views: Int
+  vid: String
+  taskId: String
+  eventType: String
+  cid: String
+  code: String
+  pieceIndex: Int
+  type: String
+  url: String
+  uid: Float
+  filename: String
+  size: String
+  channelName: String
+  mix: String
+  channelId: Float
+  md5: String
+  timestamp: Float
+  substream: Boolean
+  reason: String
+  streamUrl: String
+  createTime: Float
+  origUrl: String
+  playSupport: String
+  downloadOrigUrl: String
+  videoName: String
+  durationMsec: String
+  status: Float
+  updateTime: Float
+  typeName: String
+  duration: Int
+  snapshotUrl: String
+  initialSize: String
+  typeId: Float
+  shdMp4Url: String
+  sdMp4Size: Float
+  downloadSdMp4Url: String
+  description: String
+  hdMp4Size: Float
+  downloadSdFlvUrl: String
+  shdMp4Size: Float
+  sdFlvUrl: String
+  sdFlvSize: Float
+  hdMp4Url: String
+  sdMp4Url: String
+  downloadHdMp4Url: String
+  downloadShdMp4Url: String
+  completeTime: Float
+  createdAt: String
+  updatedAt: String
+}
+
+type videoRes {
+  data: [Video]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type Wishlist {
+  id: ID
+  product: Product
+  variant: Product
+  user: User
+  store: Store
+  active: Boolean
+  createdAt: String
+  updatedAt: String
+}
+
+type OneWishlist {
+  id: ID
+  product: Product
+  variant: Product
+  user: ID
+  store: ID
+  active: Boolean
+  createdAt: String
+  updatedAt: String
+}
+
+type wishlistRes {
+  data: [Wishlist]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type Referral {
+  id: ID!
+  storeCreated: Boolean
+  subscriptionBought: Boolean
+  subscribe: Subscribe
+  subscribeAmount: Float
+  commissionAmount: Float
+  commissionSettled: Boolean
+  referredFrom: User
+  referredTo: User
+  walletTransaction: WalletTransaction
+}
+
+type OneReferral {
+  id: ID!
+  storeCreated: Boolean
+  subscriptionBought: Boolean
+  subscribe: ID
+  subscribeAmount: Float
+  commissionAmount: Float
+  commissionSettled: Boolean
+  referredFrom: ID
+  referredTo: ID
+  walletTransaction: ID
+}
+
+type referralRes {
+  data: [Referral]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type Wallet {
+  id: ID!
+  balance: Float
+  user: User
+  createdAt: String
+  updatedAt: String
+}
+
+type OneWallet {
+  id: ID!
+  balance: Float
+  user: ID
+  createdAt: String
+  updatedAt: String
+}
+
+type WalletRes {
+  data: [Wallet]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type WalletTransaction {
+  id: ID!
+  trnxType: String
+  purpose: String
+  reference: String
+  amount: Float
+  balanceBefore: Float
+  balanceAfter: Float
+  summary: String
+  trnxSummary: String
+  referenceTable: String
+  referenceId: String
+  user: User
+  wallet: Wallet
+  createdAt: String
+  updatedAt: String
+}
+
+type OneWalletTransaction {
+  id: ID!
+  trnxType: String
+  purpose: String
+  reference: String
+  amount: Float
+  balanceBefore: Float
+  balanceAfter: Float
+  summary: String
+  trnxSummary: String
+  referenceTable: String
+  referenceId: String
+  user: ID
+  wallet: ID
+  createdAt: String
+  updatedAt: String
+}
+
+type WalletTransactionRes {
+  data: [OneWalletTransaction]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type Withdrawal {
+  id: ID!
+  status: String
+  amount: Float
+  remark: String
+  wallet: Wallet
+  user: User
+  createdAt: String
+  updatedAt: String
+}
+
+type OneWithdrawal {
+  id: ID!
+  status: String
+  amount: Float
+  remark: String
+  wallet: ID
+  user: ID
+  createdAt: String
+  updatedAt: String
+}
+
+type WithdrawalRes {
+  data: [Withdrawal]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+type Tag {
+  id: ID!
+  name: String
+  slug: String
+  colorCode: String
+  user: User
+  store: Store
+  active: Boolean
+  createdAt: String!
+  updatedAt: String!
+}
+
+type OneTag {
+  id: ID!
+  name: String
+  slug: String
+  colorCode: String
+  user: ID
+  store: ID
+  active: Boolean
+  createdAt: String!
+  updatedAt: String!
+}
+
+type tagRes {
+  data: [Tag]
+  count: Int
+  pageSize: Int
+  page: Int
+}
+
+enum CacheControlScope {
+  PUBLIC
+  PRIVATE
+}
